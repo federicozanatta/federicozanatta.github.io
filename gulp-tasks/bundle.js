@@ -11,7 +11,7 @@ function bundle(gulp, $){
 	var buffer = require('vinyl-buffer');
 	$.paths.bundle = {
 		resources: [
-		// './bower_components/bootstrap/dist/js/bootstrap.min.js',
+		'./node_modules/jquery/dist/jquery.min.js',
 		'./node_modules/angular/angular.min.js',
 		'./node_modules/angular-ui-router/release/angular-ui-router.min.js',
 		'./node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
