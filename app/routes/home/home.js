@@ -5,12 +5,12 @@ function homeController(angular, app) {
 
     app.controller('homeCtrl', homeCtrl);
 
-    homeCtrl.$inject = ['$timeout', '$mdSidenav'];
+    homeCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
 
-    function homeCtrl($timeout, $mdSidenav){
+    function homeCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            alert("nombre: " + self.user.name + " Apellido: " + self.user.lastname);
+            $state.go('home.result',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
@@ -24,10 +24,7 @@ function homeController(angular, app) {
 
 
         function init(){
-            self.user = {
-                name: '',
-                lastname:''
-            };
+            self.user = {};
             self.toggleLeft = toggleLeft;
             self.toggleRight = toggleRight;
             self.send = send;

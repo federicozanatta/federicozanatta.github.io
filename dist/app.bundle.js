@@ -6,12 +6,14 @@
 		$urlRouterProvider.otherwise("/");
 		$stateProvider
 		.state('home', { url: "/", templateUrl: "./dist/routes/home/home.template.html", controller:"homeCtrl", controllerAs:"home" })
+		.state('home.result', { url: "/result", templateUrl: "./dist/routes/result/result.template.html",params: { user: null}, controller:"resultCtrl", controllerAs:"result" })
 	});
 	app.run(function (){});	
 	require('./routes/home/home.js')(angular, app);
+	require('./routes/result/result.js')(angular, app);
 })();
 
-},{"./routes/home/home.js":2}],2:[function(require,module,exports){
+},{"./routes/home/home.js":2,"./routes/result/result.js":3}],2:[function(require,module,exports){
 function homeController(angular, app) {
     'use strict';
 
@@ -19,12 +21,12 @@ function homeController(angular, app) {
 
     app.controller('homeCtrl', homeCtrl);
 
-    homeCtrl.$inject = ['$timeout', '$mdSidenav'];
+    homeCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
 
-    function homeCtrl($timeout, $mdSidenav){
+    function homeCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            alert("nombre: " + self.user.name + " Apellido: " + self.user.lastname);
+            $state.go('home.result',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
@@ -38,10 +40,7 @@ function homeController(angular, app) {
 
 
         function init(){
-            self.user = {
-                name: '',
-                lastname:''
-            };
+            self.user = {};
             self.toggleLeft = toggleLeft;
             self.toggleRight = toggleRight;
             self.send = send;
@@ -50,4 +49,24 @@ function homeController(angular, app) {
     }
 };
 module.exports = homeController;
+},{}],3:[function(require,module,exports){
+function resultController(angular, app) {
+    'use strict';
+
+    'use angular template'; //jshint ignore:line
+
+    app.controller('resultCtrl', resultCtrl);
+
+    resultCtrl.$inject = ['$state'];
+
+    function resultCtrl($state){
+        var self = this; //jshint ignore:line
+
+        function init(){
+            self.userdata = $state.params.user;
+        }
+        init();
+    }
+};
+module.exports = resultController;
 },{}]},{},[1]);
