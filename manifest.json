@@ -1,0 +1,16 @@
+{
+  "short_name": "Quirofano",
+  "name": "Quirofano",
+  "theme_color": "#283593",
+  "start_url":"/",
+  "scope":"/",
+  "icons": [
+    {
+      "src": "android.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone",
+  "orientation": "portrait"
+}
