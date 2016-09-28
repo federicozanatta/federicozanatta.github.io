@@ -31,5 +31,5 @@ function homeController(angular, app) {
         }
         init();
     }
-};
+}
 module.exports = homeController;
