@@ -12,6 +12,7 @@
     "angular-aria": "^1.5.8",
     "angular-material": "^1.1.1",
     "angular-sanitize": "^1.5.7",
+    "angular-ui-bootstrap": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-connect-php": "0.0.7",
@@ -19,7 +20,8 @@
     "gulp-load-plugins": "^1.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.2.0",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "ui-bootstrap": "^0.1.6"
   },
   "dependencies": {
     "angular": "^1.5.5",
