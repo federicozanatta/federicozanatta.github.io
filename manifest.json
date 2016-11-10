@@ -1,12 +1,12 @@
 {
-  "short_name": "quirofano",
-  "name": "quirofano",
+  "short_name": "Quirófano",
+  "name": "Quirófano",
   "theme_color": "#283593",
   "start_url":"/",
   "scope":"/",
   "icons": [
     {
-      "src": "android.png",
+      "src": "cirugia.png",
       "sizes": "512x512",
       "type": "image/png"
     }

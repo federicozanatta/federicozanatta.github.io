@@ -5,28 +5,30 @@
 	.config(function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/");
 		$stateProvider
-		.state('home', { url: "/", templateUrl: "./dist/routes/home/home.template.html", controller:"homeCtrl", controllerAs:"home" })
+		.state('land', { url: "/", templateUrl: "./dist/routes/land/land.template.html", controller:"landCtrl", controllerAs:"land" })
+		//.state('home', { url: "/", templateUrl: "./dist/routes/home/home.template.html", controller:"homeCtrl", controllerAs:"home" })
 		.state('home.result', { url: "result", templateUrl: "./dist/routes/result/result.template.html",params: { user: null}, controller:"resultCtrl", controllerAs:"result" })
 	});
 	app.run(function (){});	
-	require('./routes/home/home.js')(angular, app);
+	require('./routes/land/land.js')(angular, app);
+	//require('./routes/home/home.js')(angular, app);
 	require('./routes/result/result.js')(angular, app);
 })();
 
-},{"./routes/home/home.js":2,"./routes/result/result.js":3}],2:[function(require,module,exports){
-function homeController(angular, app) {
+},{"./routes/land/land.js":2,"./routes/result/result.js":3}],2:[function(require,module,exports){
+function landController(angular, app) {
     'use strict';
 
     'use angular template'; //jshint ignore:line
 
-    app.controller('homeCtrl', homeCtrl);
+    app.controller('landCtrl', landCtrl);
 
-    homeCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+    landCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
 
-    function homeCtrl($timeout, $mdSidenav,$state){
+    function landCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('home.result',{ user: self.user });
+            $state.go('land.result',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
@@ -48,7 +50,7 @@ function homeController(angular, app) {
         init();
     }
 }
-module.exports = homeController;
+module.exports = landController;
 },{}],3:[function(require,module,exports){
 function resultController(angular, app) {
     'use strict';
