@@ -1,16 +1,16 @@
-function landController(angular, app) {
+function cirugiaController(angular, app) {
     'use strict';
 
     'use angular template'; //jshint ignore:line
 
-    app.controller('landCtrl', landCtrl);
+    app.controller('cirugiaCtrl', cirugiaCtrl);
 
-    landCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+    cirugiaCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
 
-    function landCtrl($timeout, $mdSidenav,$state){
+    function cirugiaCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('land.result',{ user: self.user });
+            $state.go('cirugia.result',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
@@ -32,4 +32,4 @@ function landController(angular, app) {
         init();
     }
 }
-module.exports = landController;
+module.exports = cirugiaController;
