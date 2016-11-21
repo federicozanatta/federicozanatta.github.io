@@ -5,11 +5,14 @@
 		$urlRouterProvider.otherwise("/");
 		$stateProvider
 		//.state('land', { url: "/", templateUrl: "./dist/routes/land/land.template.html", controller:"landCtrl", controllerAs:"land" })
-		.state('home', { url: "/", templateUrl: "./dist/routes/home/home.template.html", controller:"homeCtrl", controllerAs:"home" })
-		.state('home.result', { url: "result", templateUrl: "./dist/routes/result/result.template.html",params: { user: null}, controller:"resultCtrl", controllerAs:"result" })
+		//.state('home', { url: "/", templateUrl: "./dist/routes/home/home.template.html", controller:"homeCtrl", controllerAs:"home" })
+		//.state('home.result', { url: "result", templateUrl: "./dist/routes/result/result.template.html",params: { user: null}, controller:"resultCtrl", controllerAs:"result" })
+		.state('cirugia', { url: "/", templateUrl: "./dist/routes/cirugia/cirugia.template.html", controller:"cirugiaCtrl", controllerAs:"cirugia" })
+		.state('cirugia.pre_ingreso', { url: "pre_ingreso", templateUrl: "./dist/routes/pre_ingreso/pre_ingreso.template.html",params: { user: null}, controller:"pre_ingresoCtrl", controllerAs:"pre_ingreso" })
+
 	});
 	app.run(function (){});	
 	//require('./routes/land/land.js')(angular, app);
-	require('./routes/home/home.js')(angular, app);
-	require('./routes/result/result.js')(angular, app);
+	require('./routes/cirugia/cirugia.js')(angular, app);
+	require('./routes/pre_ingreso/pre_ingreso.js')(angular, app);
 })();
