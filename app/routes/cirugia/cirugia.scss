@@ -6,22 +6,26 @@
 		}
 	}
 	.send-button{
-		width: 300px;
+		width: 50%;
 		height: 200px;
-		margin: 0%;
-		margin-left: 38.7%;
+		margin: 5%;
+		margin-left: 25%;
 	}
 
 	.header-bars{
-	//	margin: 0%;
-		width: 600px;
-		height: 300px;
-		margin-left: 27.9%;
+		width: 70%;
+		font-family: 'MuseoSans-300';
+		font-size: 20px;
+		color: white;
+		margin-left: 18.1%;
+		//margin-top: 5px;
 	}
 	.style-font{
+		width: 85%;
 		font-family: 'MuseoSans-300';
-		font-size: 30px;
+		font-size: 35px;
 		color: grey;
-		margin-left: 19.3%;
+		margin-left: 8.4%;
+		margin-top: 30px;
 	}
 }

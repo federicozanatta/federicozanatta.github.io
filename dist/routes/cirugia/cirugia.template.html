@@ -1,31 +1,6 @@
 <div class="cirugia" ng-cloak>
 	<link rel="stylesheet" type="text/css" href="./dist/routes/cirugia/cirugia.css" >
 	<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
-		<md-toolbar class="md-theme-indigo">
-			<h1 class="md-toolbar-tools">Menu</h1>
-		</md-toolbar>
-		<md-content>
-			<md-list flex>
-				<md-list-item class="md-3-line" ng-click="null">
-					<div class="md-list-item-text" layout="column">
-						<span><md-icon ><i class="material-icons md-accent">local_hospital</i></md-icon> Hospital</span>
-					</div>					
-				</md-list-item>		
-				<md-divider ></md-divider>	
-								<md-list-item class="md-3-line" ng-click="null">
-					<div class="md-list-item-text" layout="column">
-						<span><md-icon ><i class="material-icons md-accent">local_hospital</i></md-icon> Hospital</span>
-					</div>					
-				</md-list-item>		
-				<md-divider ></md-divider>	
-								<md-list-item class="md-3-line" ng-click="null">
-					<div class="md-list-item-text" layout="column">
-						<span><md-icon ><i class="material-icons md-accent">local_hospital</i></md-icon> Hospital</span>
-					</div>					
-				</md-list-item>		
-				<md-divider ></md-divider>	
-			</md-list>
-		</md-content>
 	</md-sidenav>
 	<md-toolbar class="md-hue-2">
 		<div class="header-bars md-toolbar-tools">
@@ -36,26 +11,22 @@
 	</md-toolbar>
 	<div ui-view>
 		<section layout="column">
-			<md-content flex="1" layout-padding>
-			<div class="style-font">
-			<h2>
-			<span>Seleccione el tipo de cirugía que desee</span>
-			</h2>
-		</div>
+			<md-content flex="1">
+				<div class="style-font">
+						<span>Seleccione el tipo de cirugía que desee</span>
+				</div>
 			</md-content>
-			<md-content flex="2" layout-padding>
-				<div>
+			<md-content flex="1" layout-padding>
 					<form name="userForm">	
-						<div layout-xs="column">
-							<md-input-container class="md-block" flex-xs>
-								<md-button class="md-raised md-primary send-button" ng-click="cirugia.send()"> Programado </md-button>
-							</md-input-container>
-							<md-input-container class="md-block" flex-xs>
-								<md-button class="md-raised md-primary send-button" ng-click="cirugia.send()"> Urgencia </md-button>
-							</md-input-container>
+						<div layout-md="column">
+							<sm-input-container class="md-block" flex-md>
+								<md-button class="md-raised md-primary send-button" ng-click="cirugia.send()"><h1> Programado </h1></md-button>
+							</sm-input-container>
+							<sm-input-container class="md-block" flex-md>
+								<md-button class="md-raised md-primary send-button" ng-click="cirugia.send()"><h1> Urgencia </h1></md-button>
+							</sm-input-container>
 						</div>
 					</form>
-				</div>
 			</md-content>		
 		</section>
 	</div>
