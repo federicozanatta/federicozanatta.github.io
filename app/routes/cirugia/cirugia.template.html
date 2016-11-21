@@ -28,24 +28,30 @@
 		</md-content>
 	</md-sidenav>
 	<md-toolbar class="md-hue-2">
-		<div class="md-toolbar-tools">
+		<div class="header-bars md-toolbar-tools">
 			<h2>
-				<span><center>Quirófano</center></span>
+				<span>Notas de Informe Quirúrgico</span>
 			</h2>
 		</div>
 	</md-toolbar>
 	<div ui-view>
 		<section layout="column">
 			<md-content flex="1" layout-padding>
+			<div class="style-font">
+			<h2>
+			<span>Seleccione el tipo de cirugía que desee</span>
+			</h2>
+		</div>
 			</md-content>
 			<md-content flex="2" layout-padding>
 				<div>
 					<form name="userForm">	
 						<div layout-xs="column">
 							<md-input-container class="md-block" flex-xs>
-								<md-button class="md-raised md-primary send-button" ng-click="cirugia.send()"> Enviar </md-button>
-
-								<md-button class="md-raised md-primary send-button" ng-click="cirugia.send()"> Enviar </md-button>
+								<md-button class="md-raised md-primary send-button" ng-click="cirugia.send()"> Programado </md-button>
+							</md-input-container>
+							<md-input-container class="md-block" flex-xs>
+								<md-button class="md-raised md-primary send-button" ng-click="cirugia.send()"> Urgencia </md-button>
 							</md-input-container>
 						</div>
 					</form>
