@@ -10,15 +10,22 @@
 		//.state('home.result', { url: "result", templateUrl: "./dist/routes/result/result.template.html",params: { user: null}, controller:"resultCtrl", controllerAs:"result" })
 		.state('cirugia', { url: "/", templateUrl: "./dist/routes/cirugia/cirugia.template.html", controller:"cirugiaCtrl", controllerAs:"cirugia" })
 		.state('cirugia.pre_ingreso', { url: "pre_ingreso", templateUrl: "./dist/routes/pre_ingreso/pre_ingreso.template.html",params: { user: null}, controller:"pre_ingresoCtrl", controllerAs:"pre_ingreso" })
+		.state('cirugia.intervencion', { url: "intervencion", templateUrl: "./dist/routes/intervencion/intervencion.template.html",params: { user: null}, controller:"intervencionCtrl", controllerAs:"intervencion" })
+		.state('cirugia.conteo', { url: "conteo", templateUrl: "./dist/routes/conteo/conteo.template.html",params: { user: null}, controller:"conteoCtrl", controllerAs:"conteo" })
+		.state('cirugia.revision', { url: "revision", templateUrl: "./dist/routes/revision/revision.template.html",params: { user: null}, controller:"revisionCtrl", controllerAs:"revision" })
+	
 
 	});
 	app.run(function (){});	
 	//require('./routes/land/land.js')(angular, app);
 	require('./routes/cirugia/cirugia.js')(angular, app);
 	require('./routes/pre_ingreso/pre_ingreso.js')(angular, app);
+	require('./routes/intervencion/intervencion.js')(angular, app);
+	require('./routes/conteo/conteo.js')(angular, app);
+	require('./routes/revision/revision.js')(angular, app);
 })();
 
-},{"./routes/cirugia/cirugia.js":2,"./routes/pre_ingreso/pre_ingreso.js":3}],2:[function(require,module,exports){
+},{"./routes/cirugia/cirugia.js":2,"./routes/conteo/conteo.js":3,"./routes/intervencion/intervencion.js":4,"./routes/pre_ingreso/pre_ingreso.js":5,"./routes/revision/revision.js":6}],2:[function(require,module,exports){
 function cirugiaController(angular, app) {
     'use strict';
 
@@ -31,7 +38,7 @@ function cirugiaController(angular, app) {
     function cirugiaCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('cirugia.pre_ingreso',{ user: self.user });
+            $state.go('cirugia.pre_ingreso',{ user: self.user});
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
@@ -55,19 +62,19 @@ function cirugiaController(angular, app) {
 }
 module.exports = cirugiaController;
 },{}],3:[function(require,module,exports){
-function pre_ingresoController(angular, app) {
+function conteoController(angular, app) {
     'use strict';
 
     'use angular template'; //jshint ignore:line
 
-    app.controller('pre_ingresoCtrl', pre_ingresoCtrl);
+    app.controller('conteoCtrl', conteoCtrl);
 
-    pre_ingresoCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+    conteoCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
 
-    function pre_ingresoCtrl($timeout, $mdSidenav,$state){
+    function conteoCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('pre_ingreso.result',{ user: self.user });
+            $state.go('conteo.revision',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
@@ -89,5 +96,115 @@ function pre_ingresoController(angular, app) {
         init();
     }
 }
-module.exports = pre_ingresoController;
+module.exports = conteoController;
+},{}],4:[function(require,module,exports){
+function intervencionController(angular, app) {
+    'use strict';
+
+    'use angular template'; //jshint ignore:line
+
+    app.controller('intervencionCtrl', intervencionCtrl);
+
+    intervencionCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+
+    function intervencionCtrl($timeout, $mdSidenav,$state){
+        var self = this; //jshint ignore:line
+        function send(){
+            $state.go('intervencion.conteo',{ user: self.user });
+        }
+        function buildToggler(componentId) {
+            $mdSidenav(componentId).toggle();
+        }
+        function toggleLeft(){ 
+            buildToggler('left'); 
+        }
+        function toggleRight() { 
+            buildToggler('right');
+        }
+
+
+        function init(){
+            self.user = {};
+            self.toggleLeft = toggleLeft;
+            self.toggleRight = toggleRight;
+            self.send = send;
+        }
+        init();
+    }
+}
+module.exports = intervencionController;
+},{}],5:[function(require,module,exports){
+function pre_ingresoController(angular, app) {
+    'use strict';
+
+    'use angular template'; //jshint ignore:line
+
+    app.controller('pre_ingresoCtrl', pre_ingresoCtrl);
+
+    pre_ingresoCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+
+    function pre_ingresoCtrl($timeout, $mdSidenav,$state){
+        var self = this; //jshint ignore:line
+        function send(){
+            $state.go('cirugia.intervencion',{ user: self.user });
+        }
+        function buildToggler(componentId) {
+            $mdSidenav(componentId).toggle();
+        }
+        function toggleLeft(){ 
+            buildToggler('left'); 
+        }
+        function toggleRight() { 
+            buildToggler('right');
+        }
+        function init(){
+            self.user = {};
+            self.toggleLeft = toggleLeft;
+            self.toggleRight = toggleRight;
+            self.send = send;
+        }
+        init();
+    }
+}
+var variable = new Date(); 
+var coso = (variable.getDate() + "/" + (variable.getMonth() +1) + "/" + variable.getFullYear());
+document.write("dia" + coso);
+module.exports = pre_ingresoController
+
+},{}],6:[function(require,module,exports){
+function revisionController(angular, app) {
+    'use strict';
+
+    'use angular template'; //jshint ignore:line
+
+    app.controller('revisionCtrl', revisionCtrl);
+
+    revisionCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+
+    function revisionCtrl($timeout, $mdSidenav,$state){
+        var self = this; //jshint ignore:line
+        function send(){
+            $state.go('revision.result',{ user: self.user });
+        }
+        function buildToggler(componentId) {
+            $mdSidenav(componentId).toggle();
+        }
+        function toggleLeft(){ 
+            buildToggler('left'); 
+        }
+        function toggleRight() { 
+            buildToggler('right');
+        }
+
+
+        function init(){
+            self.user = {};
+            self.toggleLeft = toggleLeft;
+            self.toggleRight = toggleRight;
+            self.send = send;
+        }
+        init();
+    }
+}
+module.exports = revisionController;
 },{}]},{},[1]);

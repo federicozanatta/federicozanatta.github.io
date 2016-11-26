@@ -10,7 +10,7 @@ function conteoController(angular, app) {
     function conteoCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('conteo.result',{ user: self.user });
+            $state.go('conteo.revision',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();

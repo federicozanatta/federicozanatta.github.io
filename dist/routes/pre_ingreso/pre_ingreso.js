@@ -10,7 +10,7 @@ function pre_ingresoController(angular, app) {
     function pre_ingresoCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('pre_ingreso.result',{ user: self.user });
+            $state.go('cirugia.intervencion',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
@@ -21,8 +21,6 @@ function pre_ingresoController(angular, app) {
         function toggleRight() { 
             buildToggler('right');
         }
-
-
         function init(){
             self.user = {};
             self.toggleLeft = toggleLeft;
@@ -32,4 +30,7 @@ function pre_ingresoController(angular, app) {
         init();
     }
 }
-module.exports = pre_ingresoController;
+var variable = new Date(); 
+var coso = (variable.getDate() + "/" + (variable.getMonth() +1) + "/" + variable.getFullYear());
+document.write("dia" + coso);
+module.exports = pre_ingresoController

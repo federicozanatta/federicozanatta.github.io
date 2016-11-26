@@ -1,4 +1,4 @@
-.home{
+.pre_ingreso{
 	.sidebar-bars{
 		top:-3px;
 		i{
@@ -6,7 +6,31 @@
 		}
 	}
 	.send-button{
-		width:100%;
-		margin:0;
+		width: 30%;
+		height: 30%;
+		margin: 2%;
+		margin-left: 35%;
+	}
+	.style-input-left{
+		width: 40%;
+		margin-left: 5%;
+		float: left;
+	}
+	.style-input-right{
+		width: 40%;
+		margin-left: 5%;
+		float: right;
+	}
+	.style-input-div{
+		width: 95%;
+	}
+	
+	.style-font{
+		width: 55%;
+		font-family: 'MuseoSans-300';
+		font-size: 35px;
+		color: grey;
+		margin-left: 37.8%;
+		margin-top: 30px;
 	}
 }

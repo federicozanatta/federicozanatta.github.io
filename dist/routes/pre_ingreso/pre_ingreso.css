@@ -1,8 +1,31 @@
-.home .sidebar-bars {
+.pre_ingreso .sidebar-bars {
   top: -3px; }
-  .home .sidebar-bars i {
+  .pre_ingreso .sidebar-bars i {
     color: white; }
 
-.home .send-button {
-  width: 100%;
-  margin: 0; }
+.pre_ingreso .send-button {
+  width: 30%;
+  height: 30%;
+  margin: 2%;
+  margin-left: 35%; }
+
+.pre_ingreso .style-input-left {
+  width: 40%;
+  margin-left: 5%;
+  float: left; }
+
+.pre_ingreso .style-input-right {
+  width: 40%;
+  margin-left: 5%;
+  float: right; }
+
+.pre_ingreso .style-input-div {
+  width: 95%; }
+
+.pre_ingreso .style-font {
+  width: 55%;
+  font-family: 'MuseoSans-300';
+  font-size: 35px;
+  color: grey;
+  margin-left: 37.8%;
+  margin-top: 30px; }

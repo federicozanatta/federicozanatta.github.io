@@ -10,7 +10,7 @@ function cirugiaController(angular, app) {
     function cirugiaCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('cirugia.pre_ingreso',{ user: self.user });
+            $state.go('cirugia.pre_ingreso',{ user: self.user});
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();

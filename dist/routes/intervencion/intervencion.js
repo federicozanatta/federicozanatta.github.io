@@ -10,7 +10,7 @@ function intervencionController(angular, app) {
     function intervencionCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('intervencion.result',{ user: self.user });
+            $state.go('intervencion.conteo',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
