@@ -12,8 +12,8 @@ function pre_ingresoController(angular, app) {
         function send(){
             $state.go('cirugia.intervencion',{ user: self.user });
         }
-        function cargar(){
-            $state.go('cirugia.intervencion',{ user: self.user });
+        function volverCirugia(){
+            $state.go('cirugia',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
@@ -29,7 +29,7 @@ function pre_ingresoController(angular, app) {
             self.toggleLeft = toggleLeft;
             self.toggleRight = toggleRight;
             self.send = send;
-            self.cargar = cargar;
+            self.volverCirugia = volverCirugia;
         }
         init();
     }

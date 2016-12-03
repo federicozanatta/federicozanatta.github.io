@@ -15,21 +15,21 @@
 						<md-input-container>
 						<md-icon ><i class="style-input material-icons">person_pin</i></md-icon>
 						<input ng-model="pre_ingreso.user.circulante" type="text" placeholder="Circulante DNI" autocomplete="off">
-						<md-button><md-icon><i ng-click="pre_ingreso.cargar()" class="style-input material-icons">person_add</i></md-icon></md-button>
+						<md-button class="button-form"><md-icon><i class="style-input material-icons">person_add</i></md-icon></md-button>
 						</md-input-container>
 						
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">person_pin</i></md-icon>
 						<input ng-model="pre_ingreso.user.instrumentista" type="text" placeholder="Instrumentista DNI" autocomplete="off">
-						<md-button><md-icon><i class="style-input material-icons">person_add</i></md-icon></md-button>
+						<md-button class="button-form"><md-icon><i class="style-input material-icons">person_add</i></md-icon></md-button>
 						</md-input-container>
 						
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">person_pin</i></md-icon>
 						<input ng-model="pre_ingreso.user.paciente.dni" type="text" placeholder="Paciente DNI" autocomplete="off">
-						<md-button><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						<md-button class="button-form"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
 						</md-input-container>
 						
 						<br>
@@ -56,7 +56,7 @@
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">watch</i></md-icon>
-						<input ng-model="pre_ingreso.user.date.hora" type="text" readonly placeholder="Hora de Ingreso" value="14:34">
+						<input ng-model="pre_ingreso.user.date.hora" type="text" placeholder="Hora de Ingreso" value="14:34">
 						</md-input-container>
 						<br>
 						<md-input-container>
@@ -80,29 +80,28 @@
 						</md-input-container>
 						<br>
 						<md-input-container>
-						<md-icon ><i class="material-icons">assignment</i></md-icon>
-						
-						
-						<textarea ng-model="pre_ingreso.user.diagnostico" type="text" placeholder="Diagnóstico">
-						<!-- <textarea ng-model="pre_ingreso.user.diag" type="text" placeholder="Diagnóstico">-->
-						</textarea> 
-						<md-button><md-icon><i class="material-icons">keyboard_voice</i></md-icon></md-button>
+						<md-icon><i class="material-icons">assignment</i></md-icon>
+						<textarea cols="22" ng-model="pre_ingreso.user.diagnostico" type="text" placeholder="Diagnóstico">						
+						</textarea> 					
 						</md-input-container>
+						<md-button class="button-form-diagnostico"><md-icon><i class="material-icons">keyboard_voice</i></md-icon></md-button>
 					</div>
 				</div>
 			</form>
 			</md-content>
-			<div>
+			<div class="style-div">
 				<sm-input-container class="md-block" flex-md>
-				<div class="style-font">
+				<div class="style-font-check">
 				<md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
-  				Finished
+				<div class="style-font-text">
+  				¿Ha confirmado el paciente su identidad, el sitio quirúrgico, el procedimiento y su concentimiento?		
+				</div>
 				</md-checkbox>
-
 				</div>
 				<br>
+				<md-button class="md-raised md-primary send-button style-button-volver" ng-click="pre_ingreso.volverCirugia()"><h1> Volver </h1></md-button>
 				<md-button class="md-raised md-primary send-button" ng-click="pre_ingreso.send()"><h1> Intervención </h1></md-button>
-				<md-button class="md-raised md-primary send-button" ng-click="pre_ingreso.send()"><h1> Volver </h1></md-button>
+				
 				</sm-input-container>
 			</div>
 		</section>

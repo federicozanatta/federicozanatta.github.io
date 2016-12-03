@@ -74,8 +74,12 @@ function conteoController(angular, app) {
     function conteoCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('conteo.revision',{ user: self.user });
+            $state.go('cirugia.revision',{ user: self.user });
         }
+        function volverIntervencion(){
+            $state.go('cirugia.intervencion',{ user: self.user });
+        }
+
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
         }
@@ -92,6 +96,7 @@ function conteoController(angular, app) {
             self.toggleLeft = toggleLeft;
             self.toggleRight = toggleRight;
             self.send = send;
+            self.volverIntervencion = volverIntervencion;
         }
         init();
     }
@@ -110,8 +115,12 @@ function intervencionController(angular, app) {
     function intervencionCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('intervencion.conteo',{ user: self.user });
+            $state.go('cirugia.conteo',{ user: self.user });
         }
+        function volverPreingreso(){
+            $state.go('cirugia.pre_ingreso',{ user: self.user });
+        }
+
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
         }
@@ -128,6 +137,7 @@ function intervencionController(angular, app) {
             self.toggleLeft = toggleLeft;
             self.toggleRight = toggleRight;
             self.send = send;
+            self.volverPreingreso = volverPreingreso;
         }
         init();
     }
@@ -148,8 +158,8 @@ function pre_ingresoController(angular, app) {
         function send(){
             $state.go('cirugia.intervencion',{ user: self.user });
         }
-        function cargar(){
-            $state.go('cirugia.intervencion',{ user: self.user });
+        function volverCirugia(){
+            $state.go('cirugia',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
@@ -165,7 +175,7 @@ function pre_ingresoController(angular, app) {
             self.toggleLeft = toggleLeft;
             self.toggleRight = toggleRight;
             self.send = send;
-            self.cargar = cargar;
+            self.volverCirugia = volverCirugia;
         }
         init();
     }

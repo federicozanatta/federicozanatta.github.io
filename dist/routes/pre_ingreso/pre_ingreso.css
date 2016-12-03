@@ -7,7 +7,7 @@
   width: 30%;
   height: 30%;
   margin: 2%;
-  margin-left: 35%; }
+  margin-left: 12%; }
 
 .pre_ingreso .style-input-left {
   width: 40%;
@@ -29,3 +29,41 @@
   color: grey;
   margin-left: 37.8%;
   margin-top: 30px; }
+
+.pre_ingreso .button-form {
+  position: absolute !important;
+  min-height: 30px !important;
+  min-width: 32px !important;
+  line-height: 31px !important;
+  padding: 0px 6px !important;
+  margin: 2px 5px !important; }
+
+.pre_ingreso .button-form-diagnostico {
+  position: absolute !important;
+  min-height: 30px !important;
+  min-width: 32px !important;
+  line-height: 31px !important;
+  padding: 0px 6px !important;
+  margin: 20px 5px !important; }
+
+.pre_ingreso .style-button-volver {
+  background: grey !important; }
+
+.pre_ingreso .style-font-check {
+  width: 80%;
+  font-family: 'MuseoSans-300';
+  font-size: 20px;
+  color: grey;
+  margin-left: 57px;
+  margin-top: 0px; }
+
+.pre_ingreso .style-font-text {
+  width: 100%;
+  font-family: 'MuseoSans-300';
+  font-size: 20px;
+  color: grey;
+  margin-left: 10px;
+  margin-top: 0px; }
+
+.pre_ingreso .style-div {
+  padding-bottom: 25px; }

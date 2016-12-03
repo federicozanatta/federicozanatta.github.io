@@ -10,8 +10,12 @@ function conteoController(angular, app) {
     function conteoCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('conteo.revision',{ user: self.user });
+            $state.go('cirugia.revision',{ user: self.user });
         }
+        function volverIntervencion(){
+            $state.go('cirugia.intervencion',{ user: self.user });
+        }
+
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
         }
@@ -28,6 +32,7 @@ function conteoController(angular, app) {
             self.toggleLeft = toggleLeft;
             self.toggleRight = toggleRight;
             self.send = send;
+            self.volverIntervencion = volverIntervencion;
         }
         init();
     }

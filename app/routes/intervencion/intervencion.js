@@ -10,8 +10,12 @@ function intervencionController(angular, app) {
     function intervencionCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('intervencion.conteo',{ user: self.user });
+            $state.go('cirugia.conteo',{ user: self.user });
         }
+        function volverPreingreso(){
+            $state.go('cirugia.pre_ingreso',{ user: self.user });
+        }
+
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
         }
@@ -28,6 +32,7 @@ function intervencionController(angular, app) {
             self.toggleLeft = toggleLeft;
             self.toggleRight = toggleRight;
             self.send = send;
+            self.volverPreingreso = volverPreingreso;
         }
         init();
     }

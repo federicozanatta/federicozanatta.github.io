@@ -1,4 +1,4 @@
-.home{
+.intervencion{
 	.sidebar-bars{
 		top:-3px;
 		i{
@@ -6,7 +6,75 @@
 		}
 	}
 	.send-button{
-		width:100%;
-		margin:0;
+		width: 30%;
+		height: 30%;
+		margin: 2%;
+		margin-left: 12%;
 	}
+	.style-input-left{
+		width: 40%;
+		margin-left: 5%;
+		float: left;
+	}
+	.style-input-right{
+		width: 40%;
+		margin-left: 5%;
+		float: right;
+	}
+	.style-input-div{
+		width: 95%;
+	}
+	
+	.style-font{
+		width: 55%;
+		font-family: 'MuseoSans-300';
+		font-size: 35px;
+		color: grey;
+		margin-left: 36.5%;
+		margin-top: 30px;
+	}
+
+	.button-form {
+  position: absolute !important;
+  min-height: 30px !important;
+  min-width: 32px !important;
+  line-height: 31px !important;
+  padding: 0px 6px !important;
+  margin: 2px 5px !important;
+}
+	.button-form-diagnostico {
+  position: absolute !important;
+  min-height: 30px !important;
+  min-width: 32px !important;
+  line-height: 31px !important;
+  padding: 0px 6px !important;
+  margin: 20px 5px !important;
+}
+
+	.style-button-volver {
+//color: grey !important;
+background: grey !important;
+}
+
+	.style-font-check {
+		width: 80%;
+		font-family: 'MuseoSans-300';
+		font-size: 20px;
+		color: grey;
+		margin-left: 57px;
+		margin-top: 0px;
+}
+	.style-font-text {
+		width: 100%;
+		font-family: 'MuseoSans-300';
+		font-size: 20px;
+		color: grey;
+		margin-left: 10px;
+		margin-top: 0px;
+}
+
+	.style-div {
+padding-bottom: 25px;
+}
+
 }
