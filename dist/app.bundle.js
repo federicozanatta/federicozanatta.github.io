@@ -148,6 +148,9 @@ function pre_ingresoController(angular, app) {
         function send(){
             $state.go('cirugia.intervencion',{ user: self.user });
         }
+        function cargar(){
+            $state.go('cirugia.intervencion',{ user: self.user });
+        }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
         }
@@ -162,13 +165,14 @@ function pre_ingresoController(angular, app) {
             self.toggleLeft = toggleLeft;
             self.toggleRight = toggleRight;
             self.send = send;
+            self.cargar = cargar;
         }
         init();
     }
 }
-var variable = new Date(); 
-var coso = (variable.getDate() + "/" + (variable.getMonth() +1) + "/" + variable.getFullYear());
-document.write("dia" + coso);
+//var variable = new Date(); 
+//var coso = (variable.getDate() + "/" + (variable.getMonth() +1) + "/" + variable.getFullYear());
+//document.write("dia" + coso);
 module.exports = pre_ingresoController
 
 },{}],6:[function(require,module,exports){

@@ -635,12 +635,12 @@ button.md-button::-moz-focus-inner {
 
 .md-button {
   display: inline-block;
-  position: relative;
+  position: absolute;
   cursor: pointer;
   /** Alignment adjustments */
-  min-height: 36px;
-  min-width: 88px;
-  line-height: 36px;
+  min-height: 30px;
+  min-width: 32px;
+  line-height: 31px;
   vertical-align: middle;
   align-items: center;
   text-align: center;
@@ -651,8 +651,8 @@ button.md-button::-moz-focus-inner {
   outline: none;
   border: 0;
   /** Custom styling for button */
-  padding: 0 6px;
-  margin: 6px 8px;
+  padding: 0px 0px;
+  margin: 2px 5px;
   background: transparent;
   color: currentColor;
   white-space: nowrap;
