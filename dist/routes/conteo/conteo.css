@@ -67,3 +67,13 @@
 
 .conteo .style-div {
   padding-bottom: 25px; }
+
+.conteo .style-input-left-middle1 {
+  width: 20%;
+  margin-left: 5%;
+  float: left; }
+
+.conteo .style-input-left-middle2 {
+  width: 20%;
+  margin-left: 5%;
+  float: left; }

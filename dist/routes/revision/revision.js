@@ -10,7 +10,10 @@ function revisionController(angular, app) {
     function revisionCtrl($timeout, $mdSidenav,$state){
         var self = this; //jshint ignore:line
         function send(){
-            $state.go('revision.result',{ user: self.user });
+           console.log("Final del informe");
+        }
+     function volverConteo(){
+            $state.go('cirugia.conteo',{ user: self.user });
         }
         function buildToggler(componentId) {
             $mdSidenav(componentId).toggle();
@@ -28,6 +31,7 @@ function revisionController(angular, app) {
             self.toggleLeft = toggleLeft;
             self.toggleRight = toggleRight;
             self.send = send;
+            self.volverConteo = volverConteo;
         }
         init();
     }

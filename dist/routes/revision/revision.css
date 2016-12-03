@@ -1,8 +1,79 @@
-.home .sidebar-bars {
+.revision .sidebar-bars {
   top: -3px; }
-  .home .sidebar-bars i {
+  .revision .sidebar-bars i {
     color: white; }
 
-.home .send-button {
+.revision .send-button {
+  width: 30%;
+  height: 30%;
+  margin: 2%;
+  margin-left: 12%; }
+
+.revision .style-input-left {
+  width: 40%;
+  margin-left: 5%;
+  float: left; }
+
+.revision .style-input-right {
+  width: 40%;
+  margin-left: 5%;
+  float: right; }
+
+.revision .style-input-div {
+  width: 95%; }
+
+.revision .style-font {
+  width: 55%;
+  font-family: 'MuseoSans-300';
+  font-size: 35px;
+  color: grey;
+  margin-left: 41%;
+  margin-top: 30px; }
+
+.revision .button-form {
+  position: absolute !important;
+  min-height: 30px !important;
+  min-width: 32px !important;
+  line-height: 31px !important;
+  padding: 0px 6px !important;
+  margin: 2px 5px !important; }
+
+.revision .button-form-diagnostico {
+  position: absolute !important;
+  min-height: 30px !important;
+  min-width: 32px !important;
+  line-height: 31px !important;
+  padding: 0px 6px !important;
+  margin: 20px 5px !important; }
+
+.revision .style-button-volver {
+  background: grey !important; }
+
+.revision .style-font-check {
+  width: 80%;
+  font-family: 'MuseoSans-300';
+  font-size: 20px;
+  color: grey;
+  margin-left: 57px;
+  margin-top: 0px; }
+
+.revision .style-font-text {
   width: 100%;
-  margin: 0; }
+  font-family: 'MuseoSans-300';
+  font-size: 20px;
+  color: grey;
+  margin-left: 10px;
+  margin-top: 0px; }
+
+.revision .style-div {
+  padding-bottom: 25px; }
+
+.revision .style-input-left-middle1 {
+  width: 20%;
+  margin-left: 5%;
+  float: left; }
+
+.revision .style-input-left-middle2 {
+  width: 20%;
+  margin-left: 5%;
+  float: left; }
