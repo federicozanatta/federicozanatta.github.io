@@ -30,11 +30,18 @@
 						</textarea> 					
 						</md-input-container>
 						<md-button class="button-form-diagnostico"><md-icon><i class="material-icons">keyboard_voice</i></md-icon></md-button>
+												<br>
+						<md-input-container>
+						<md-icon><i class="material-icons">assignment</i></md-icon>
+						<textarea cols="22" ng-model="intervencion.user.diagnostico" type="text" placeholder="Observaciones">						
+						</textarea> 					
+						</md-input-container>
+						<md-button class="button-form-diagnostico"><md-icon><i class="material-icons">keyboard_voice</i></md-icon></md-button>
 					</div>
 					<div class="style-input-right">
 						<md-input-container>
 						<md-icon ><i class="style-input material-icons">person_pin</i></md-icon>
-						<input ng-model="intervencion.user.auxiliar" type="text" placeholder="Auxiliar DNI" autocomplete="off">
+						<input ng-model="intervencion.user.auxiliar" type="text" placeholder="Ayudante DNI" autocomplete="off">
 						<md-button class="button-form"><md-icon><i class="style-input material-icons">person_add</i></md-icon></md-button>
 						</md-input-container>					
 						<br>		
@@ -47,13 +54,7 @@
 						<md-icon ><i class="material-icons">watch</i></md-icon>
 						<input ng-model="intervencion.user.date.horaFinal" type="text" placeholder="Hora de Finalización" value="14:34">
 						</md-input-container>
-						<br>
-						<md-input-container>
-						<md-icon><i class="material-icons">assignment</i></md-icon>
-						<textarea cols="22" ng-model="intervencion.user.diagnostico" type="text" placeholder="Observaciones">						
-						</textarea> 					
-						</md-input-container>
-						<md-button class="button-form-diagnostico"><md-icon><i class="material-icons">keyboard_voice</i></md-icon></md-button>
+
 					</div>
 				</div>
 			</form>
