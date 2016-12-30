@@ -65,5 +65,13 @@
   margin-left: 10px;
   margin-top: 0px; }
 
+.pre_ingreso .style-font-text-persona {
+  width: 100%;
+  font-family: 'MuseoSans-300';
+  font-size: 15px;
+  color: grey;
+  margin-left: 37px;
+  margin-top: 0px; }
+
 .pre_ingreso .style-div {
   padding-bottom: 25px; }

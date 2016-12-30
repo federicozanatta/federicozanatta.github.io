@@ -19,6 +19,7 @@
 	//require('./routes/land/land.js')(angular, app);
 	require('./routes/cirugia/cirugia.js')(angular, app);
 	require('./routes/pre_ingreso/pre_ingreso.js')(angular, app);
+	//require('./routes/pre_ingreso/pre_ingreso-hora.js')(angular, app);
 	require('./routes/intervencion/intervencion.js')(angular, app);
 	require('./routes/conteo/conteo.js')(angular, app);
 	require('./routes/revision/revision.js')(angular, app);

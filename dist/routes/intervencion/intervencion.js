@@ -5,9 +5,44 @@ function intervencionController(angular, app) {
 
     app.controller('intervencionCtrl', intervencionCtrl);
 
-    intervencionCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+    intervencionCtrl.$inject = ['$timeout', '$mdSidenav','$state', '$scope'];
 
-    function intervencionCtrl($timeout, $mdSidenav,$state){
+    function intervencionCtrl($timeout, $mdSidenav,$state, $scope){
+
+//---------------------------------------------------------------------------
+  $scope.itemsCirujano = [];
+  $scope.AddItemCirujano = function(item) {
+    $scope.itemsCirujano.push($scope.we3);
+    $scope.we3 = "";
+  };
+  $scope.RemoveItemCirujano = function(item) {
+    $scope.itemsCirujano.splice($scope.itemsCirujano.indexOf(item), 1);
+  };
+
+//---------------------------------------------------------------------------
+  $scope.itemsAnestesista = [];
+  $scope.AddItemAnestesista = function(item) {
+    $scope.itemsAnestesista.push($scope.we4);
+    $scope.we4 = "";
+  };
+  $scope.RemoveItemAnestesista = function(item) {
+    $scope.itemsAnestesista.splice($scope.itemsAnestesista.indexOf(item), 1);
+  };
+
+  //---------------------------------------------------------------------------
+  $scope.itemsAyudante = [];
+  $scope.AddItemAyudante = function(item) {
+    $scope.itemsAyudante.push($scope.we5);
+    $scope.we5 = "";
+  };
+  $scope.RemoveItemAyudante = function(item) {
+    $scope.itemsAyudante.splice($scope.itemsAyudante.indexOf(item), 1);
+  };
+
+        //$scope.datess = new Date();
+        var date = new Date();
+        $scope.datess = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear();
+
         var self = this; //jshint ignore:line
         function send(){
             $state.go('cirugia.conteo',{ user: self.user });

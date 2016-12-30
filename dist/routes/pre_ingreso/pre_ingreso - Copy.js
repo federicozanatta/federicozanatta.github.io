@@ -8,40 +8,17 @@ function pre_ingresoController(angular, app) {
     pre_ingresoCtrl.$inject = ['$timeout', '$mdSidenav','$state', '$scope'];
 
     function pre_ingresoCtrl($timeout, $mdSidenav, $state, $scope){
-        
-//---------------------------------------------------------------------------
-  $scope.itemsCirculante = [];
-  $scope.AddItemCirculante = function(item) {
-    $scope.itemsCirculante.push($scope.we1);
-    $scope.we1 = "";
-  };
-  $scope.RemoveItemCirculante = function(item) {
-    $scope.itemsCirculante.splice($scope.itemsCirculante.indexOf(item), 1);
-  };
-
-  //---------------------------------------------------------------------------
-  $scope.itemsInstrumentista = [];
-  $scope.AddItemInstrumentista = function(item) {
-    $scope.itemsInstrumentista.push($scope.we2);
-    $scope.we2 = "";
-  };
-  $scope.RemoveItemInstrumentista = function(item) {
-    $scope.itemsInstrumentista.splice($scope.itemsInstrumentista.indexOf(item), 1);
-  };
-
         //$scope.datess = new Date();
         var date = new Date();
         $scope.datess = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear();
-
         var self = this; //jshint ignore:line
         function send(){
             $state.go('cirugia.intervencion',{ user: self.user });
         }
- //       function myFunction() {           
-  //      var x = document.getElementById("pre_ingreso.user.circulante").value;
-  //      document.getElementById("demo").innerHTML = x;
-  //      }
-
+        function myFunction(item) {
+        var x = document.getElementById("pre_ingreso.user.circulante").value;
+        document.getElementById("demo").innerHTML = x;
+        }
         function volverCirugia(){
             $state.go('cirugia',{ user: self.user });
         }
@@ -60,8 +37,40 @@ function pre_ingresoController(angular, app) {
             self.toggleRight = toggleRight;
             self.send = send;
             self.volverCirugia = volverCirugia;
-     //       self.myFunction = myFunction;
+            self.myFunction = myFunction;
         }
+            angular.module('ui.bootstrap.demo').controller('TimepickerDemoCtrl', function ($scope, $log) {
+  $scope.mytime = new Date();
+
+  $scope.hstep = 1;
+  $scope.mstep = 15;
+
+  $scope.options = {
+    hstep: [1, 2, 3],
+    mstep: [1, 5, 10, 15, 25, 30]
+  };
+
+  $scope.ismeridian = true;
+  $scope.toggleMode = function() {
+    $scope.ismeridian = ! $scope.ismeridian;
+  };
+
+  $scope.update = function() {
+    var d = new Date();
+    d.setHours( 14 );
+    d.setMinutes( 0 );
+    $scope.mytime = d;
+  };
+
+  $scope.changed = function () {
+    $log.log('Time changed to: ' + $scope.mytime);
+  };
+
+  $scope.clear = function() {
+    $scope.mytime = null;
+  };
+});
+
 
         init();
     }

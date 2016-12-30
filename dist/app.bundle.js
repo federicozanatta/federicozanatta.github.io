@@ -20,6 +20,7 @@
 	//require('./routes/land/land.js')(angular, app);
 	require('./routes/cirugia/cirugia.js')(angular, app);
 	require('./routes/pre_ingreso/pre_ingreso.js')(angular, app);
+	//require('./routes/pre_ingreso/pre_ingreso-hora.js')(angular, app);
 	require('./routes/intervencion/intervencion.js')(angular, app);
 	require('./routes/conteo/conteo.js')(angular, app);
 	require('./routes/revision/revision.js')(angular, app);
@@ -110,9 +111,44 @@ function intervencionController(angular, app) {
 
     app.controller('intervencionCtrl', intervencionCtrl);
 
-    intervencionCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+    intervencionCtrl.$inject = ['$timeout', '$mdSidenav','$state', '$scope'];
 
-    function intervencionCtrl($timeout, $mdSidenav,$state){
+    function intervencionCtrl($timeout, $mdSidenav,$state, $scope){
+
+//---------------------------------------------------------------------------
+  $scope.itemsCirujano = [];
+  $scope.AddItemCirujano = function(item) {
+    $scope.itemsCirujano.push($scope.we3);
+    $scope.we3 = "";
+  };
+  $scope.RemoveItemCirujano = function(item) {
+    $scope.itemsCirujano.splice($scope.itemsCirujano.indexOf(item), 1);
+  };
+
+//---------------------------------------------------------------------------
+  $scope.itemsAnestesista = [];
+  $scope.AddItemAnestesista = function(item) {
+    $scope.itemsAnestesista.push($scope.we4);
+    $scope.we4 = "";
+  };
+  $scope.RemoveItemAnestesista = function(item) {
+    $scope.itemsAnestesista.splice($scope.itemsAnestesista.indexOf(item), 1);
+  };
+
+  //---------------------------------------------------------------------------
+  $scope.itemsAyudante = [];
+  $scope.AddItemAyudante = function(item) {
+    $scope.itemsAyudante.push($scope.we5);
+    $scope.we5 = "";
+  };
+  $scope.RemoveItemAyudante = function(item) {
+    $scope.itemsAyudante.splice($scope.itemsAyudante.indexOf(item), 1);
+  };
+
+        //$scope.datess = new Date();
+        var date = new Date();
+        $scope.datess = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear();
+
         var self = this; //jshint ignore:line
         function send(){
             $state.go('cirugia.conteo',{ user: self.user });
@@ -151,17 +187,43 @@ function pre_ingresoController(angular, app) {
 
     app.controller('pre_ingresoCtrl', pre_ingresoCtrl);
 
-    pre_ingresoCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+    pre_ingresoCtrl.$inject = ['$timeout', '$mdSidenav','$state', '$scope'];
 
-    function pre_ingresoCtrl($timeout, $mdSidenav, $state){
+    function pre_ingresoCtrl($timeout, $mdSidenav, $state, $scope){
+        
+//---------------------------------------------------------------------------
+  $scope.itemsCirculante = [];
+  $scope.AddItemCirculante = function(item) {
+    $scope.itemsCirculante.push($scope.we1);
+    $scope.we1 = "";
+  };
+  $scope.RemoveItemCirculante = function(item) {
+    $scope.itemsCirculante.splice($scope.itemsCirculante.indexOf(item), 1);
+  };
+
+  //---------------------------------------------------------------------------
+  $scope.itemsInstrumentista = [];
+  $scope.AddItemInstrumentista = function(item) {
+    $scope.itemsInstrumentista.push($scope.we2);
+    $scope.we2 = "";
+  };
+  $scope.RemoveItemInstrumentista = function(item) {
+    $scope.itemsInstrumentista.splice($scope.itemsInstrumentista.indexOf(item), 1);
+  };
+
+        //$scope.datess = new Date();
+        var date = new Date();
+        $scope.datess = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear();
+
         var self = this; //jshint ignore:line
         function send(){
             $state.go('cirugia.intervencion',{ user: self.user });
         }
-        function myFunction() {
-        var x = document.getElementById("pre_ingreso.user.circulante").value;
-        document.getElementById("demo").innerHTML = x;
-}
+ //       function myFunction() {           
+  //      var x = document.getElementById("pre_ingreso.user.circulante").value;
+  //      document.getElementById("demo").innerHTML = x;
+  //      }
+
         function volverCirugia(){
             $state.go('cirugia',{ user: self.user });
         }
@@ -180,18 +242,15 @@ function pre_ingresoController(angular, app) {
             self.toggleRight = toggleRight;
             self.send = send;
             self.volverCirugia = volverCirugia;
-            self.myFunction = myFunction;
+     //       self.myFunction = myFunction;
         }
+
         init();
-            var variable = new Date(); 
-var coso = (variable.getDate() + "/" + (variable.getMonth() +1) + "/" + variable.getFullYear());
-document.getElementById("pruebafecha").innerHTML = coso;
     }
 }
-//document.getElementsByName("pre_ingreso.user.date")[0].value = coso;
-//document.write("dia" + coso);
-//document.getElementsByName("pre_ingreso.user.date")[0].innerHTML = coso;
+
 module.exports = pre_ingresoController
+
 
 },{}],6:[function(require,module,exports){
 function revisionController(angular, app) {

@@ -5,17 +5,43 @@ function pre_ingresoController(angular, app) {
 
     app.controller('pre_ingresoCtrl', pre_ingresoCtrl);
 
-    pre_ingresoCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+    pre_ingresoCtrl.$inject = ['$timeout', '$mdSidenav','$state', '$scope'];
 
-    function pre_ingresoCtrl($timeout, $mdSidenav, $state){
+    function pre_ingresoCtrl($timeout, $mdSidenav, $state, $scope){
+        
+//---------------------------------------------------------------------------
+  $scope.itemsCirculante = [];
+  $scope.AddItemCirculante = function(item) {
+    $scope.itemsCirculante.push($scope.we1);
+    $scope.we1 = "";
+  };
+  $scope.RemoveItemCirculante = function(item) {
+    $scope.itemsCirculante.splice($scope.itemsCirculante.indexOf(item), 1);
+  };
+
+  //---------------------------------------------------------------------------
+  $scope.itemsInstrumentista = [];
+  $scope.AddItemInstrumentista = function(item) {
+    $scope.itemsInstrumentista.push($scope.we2);
+    $scope.we2 = "";
+  };
+  $scope.RemoveItemInstrumentista = function(item) {
+    $scope.itemsInstrumentista.splice($scope.itemsInstrumentista.indexOf(item), 1);
+  };
+
+        //$scope.datess = new Date();
+        var date = new Date();
+        $scope.datess = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear();
+
         var self = this; //jshint ignore:line
         function send(){
             $state.go('cirugia.intervencion',{ user: self.user });
         }
-        function myFunction() {
-        var x = document.getElementById("pre_ingreso.user.circulante").value;
-        document.getElementById("demo").innerHTML = x;
-}
+ //       function myFunction() {           
+  //      var x = document.getElementById("pre_ingreso.user.circulante").value;
+  //      document.getElementById("demo").innerHTML = x;
+  //      }
+
         function volverCirugia(){
             $state.go('cirugia',{ user: self.user });
         }
@@ -34,15 +60,12 @@ function pre_ingresoController(angular, app) {
             self.toggleRight = toggleRight;
             self.send = send;
             self.volverCirugia = volverCirugia;
-            self.myFunction = myFunction;
+     //       self.myFunction = myFunction;
         }
+
         init();
-            var variable = new Date(); 
-var coso = (variable.getDate() + "/" + (variable.getMonth() +1) + "/" + variable.getFullYear());
-document.getElementById("pruebafecha").innerHTML = coso;
     }
 }
-//document.getElementsByName("pre_ingreso.user.date")[0].value = coso;
-//document.write("dia" + coso);
-//document.getElementsByName("pre_ingreso.user.date")[0].innerHTML = coso;
+
 module.exports = pre_ingresoController
+

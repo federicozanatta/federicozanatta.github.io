@@ -8,49 +8,53 @@
 			</div>
 			</md-content>
 			<md-content flex="2">
-			
 			<form name="userForm">
-				<div class="style-input-div" layout-padding>
+				<div class="style-input-div" ng-controller="pre_ingresoCtrl" layout-padding>
 					<div class="style-input-left">
 						<md-input-container>
 						<md-icon ><i class="style-input material-icons">person_pin</i></md-icon>
-						<input ng-model="pre_ingreso.user.circulante" name="pre_ingreso.user.circulante" id="pre_ingreso.user.circulante" type="text" placeholder="Circulante DNI" autocomplete="off">
-						<md-button class="button-form" ng-click="pre_ingreso.myFunction()"><md-icon><i class="style-input material-icons">person_add</i></md-icon></md-button>
-						</md-input-container>	
-						<br>
-						<p class="style-font-text" id="demo"></p>
-						<md-input-container>
-						<md-icon ><i class="material-icons">person_pin</i></md-icon>
-						<input ng-model="pre_ingreso.user.instrumentista" type="text" placeholder="Instrumentista DNI" autocomplete="off">
-						<md-button class="button-form"><md-icon><i class="style-input material-icons">person_add</i></md-icon></md-button>
-						</md-input-container>
+						<input ng-model="we1" type="number" placeholder="Circulante DNI" autocomplete="off"/>
+						<md-button class="button-form" ng-click="AddItemCirculante()"><md-icon><i class="style-input material-icons">person_add</i></md-icon></md-button>
+						</md-input-container>		
+						<p class="style-font-text-persona" ng-repeat="item in itemsCirculante">{{item}}<a href="" ng-click="RemoveItemCirculante(item)"><md-icon ><i class="style-input material-icons">delete_forever</i></md-icon></a></p>
 						
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">person_pin</i></md-icon>
-						<input ng-model="pre_ingreso.user.paciente.dni" type="text" placeholder="Paciente DNI" autocomplete="off">
-						<md-button class="button-form"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						<input ng-model="we2"  type="number" placeholder="Instrumentista DNI" autocomplete="off"/>
+						<md-button class="button-form" ng-click="AddItemInstrumentista()"><md-icon><i class="style-input material-icons">person_add</i></md-icon></md-button>
+						</md-input-container>
+						<p class="style-font-text-persona" ng-repeat="item in itemsInstrumentista">{{item}}<a href="" ng-click="RemoveItemInstrumentista(item)"><md-icon ><i class="style-input material-icons">delete_forever</i></md-icon></a></p>
+						
+						<br>
+						<md-input-container>
+						<md-icon ><i class="material-icons">person_pin</i></md-icon>
+						<input ng-model="we3"  type="number" placeholder="Paciente DNI" autocomplete="off"/>
+						<md-button class="button-form" ><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						</md-input-container>
+
+						<br>
+						<md-input-container>
+						<md-icon ><i class="material-icons">assignment</i></md-icon>
+						<input ng-model="pre_ingreso.user.paciente.nombre" type="text" placeholder="Nombre y Apellido" autocomplete="off"/>
 						</md-input-container>
 						
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">assignment</i></md-icon>
-						<input ng-model="pre_ingreso.user.paciente.nombre" type="text" placeholder="Nombre y Apellido" autocomplete="off">
+						<input ng-model="pre_ingreso.user.paciente.edad" type="number" placeholder="Edad" autocomplete="off"/>
 						</md-input-container>
+						
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">assignment</i></md-icon>
-						<input ng-model="pre_ingreso.user.paciente.edad" type="text" placeholder="Edad" autocomplete="off">
+						<input ng-model="pre_ingreso.user.paciente.domicilio" type="text" placeholder="Domicilio" autocomplete="off"/>
 						</md-input-container>
-						<br>
-						<md-input-container>
-						<md-icon ><i class="material-icons">assignment</i></md-icon>
-						<input ng-model="pre_ingreso.user.paciente.domicilio" type="text" placeholder="Domicilio" autocomplete="off">
-						</md-input-container>
+						
 						<br>
 						<md-input-container>
 						<md-icon><i class="material-icons">assignment</i></md-icon>
-						<textarea cols="22" ng-model="pre_ingreso.user.diagnostico" type="text" placeholder="Diagnóstico">						
+						<textarea cols="22" ng-model="pre_ingreso.user.diagnostico"  type="text" placeholder="Diagnóstico"/>						
 						</textarea> 					
 						</md-input-container>
 						<md-button class="button-form-diagnostico"><md-icon><i class="material-icons">keyboard_voice</i></md-icon></md-button>
@@ -58,34 +62,38 @@
 					<div class="style-input-right">
 						<md-input-container>
 						<md-icon ><i class="material-icons">date_range</i></md-icon>
-						<input ng-model="pre_ingreso.user.date" name="pre_ingreso.user.date" id="pre_ingreso.user.date" type="text" placeholder="Fecha" value="22-03-2016" />
+						<input ng-app ng-controller="pre_ingresoCtrl" ng-format="dd-MM-yyyy" ng-model="datess" readonly type="text" placeholder="Fecha"/>
 						</md-input-container>
-						<p class="style-font-text" id="pruebafecha"></p>
+						
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">watch</i></md-icon>
-						<input ng-model="pre_ingreso.user.date.hora" type="text" placeholder="Hora de Ingreso" value="14:34">
+						<input ng-model="pre_ingreso.user.date.hora" ng-format="hh:mm" type="time" step="1" placeholder="Hora de Ingreso"/>
 						</md-input-container>
+						
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">add_location</i></md-icon>
-						<input ng-model="pre_ingreso.user.sala" type="text" placeholder="Sala" value="22-03-2016" />
+						<input ng-model="pre_ingreso.user.sala" type="text" placeholder="Sala"/>
 						</md-input-container>
+						
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">star</i></md-icon>
 						<input ng-model="pre_ingreso.user.hc" type="text" placeholder="Historia Clínica"/>
 						</md-input-container>
+						
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">date_range</i></md-icon>
-						<input ng-model="pre_ingreso.user.fechaingreso" type="text" placeholder="Fecha de Ingreso" value="22-03-2016">
+						<input ng-model="pre_ingreso.user.fechaingreso" type="date" placeholder="Fecha de Ingreso"/>
 						</md-input-container>
+						
 						<br>
 						<md-input-container>
 						<md-icon ><i class="material-icons">security</i></md-icon>
-						<input ng-model="pre_ingreso.user.obrasocial" type="text" placeholder="Obra Social">
-						</md-input-container>
+						<input ng-model="pre_ingreso.user.obrasocial" type="text" placeholder="Obra Social"/>
+						</md-input-container>				
 					</div>
 				</div>
 			</form>
@@ -101,8 +109,7 @@
 				</div>
 				<br>
 				<md-button class="md-raised md-primary send-button style-button-volver" ng-click="pre_ingreso.volverCirugia()"><h1> Volver </h1></md-button>
-				<md-button class="md-raised md-primary send-button" ng-click="pre_ingreso.send()"><h1> Intervención </h1></md-button>
-				
+				<md-button class="md-raised md-primary send-button" ng-click="pre_ingreso.send()"><h1> Intervención </h1></md-button>		
 				</sm-input-container>
 			</div>
 		</section>
