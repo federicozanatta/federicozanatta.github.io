@@ -23,4 +23,5 @@
 	require('./routes/intervencion/intervencion.js')(angular, app);
 	require('./routes/conteo/conteo.js')(angular, app);
 	require('./routes/revision/revision.js')(angular, app);
+	require('./services/users/users.js')(angular, app);
 })();

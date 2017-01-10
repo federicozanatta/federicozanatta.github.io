@@ -74,6 +74,15 @@ background: grey !important;
 		margin-top: 0px;
 }
 
+	.style-font-text-red {
+		width: 100%;
+		font-family: 'MuseoSans-300';
+		font-size: 15px;
+		color: red;
+		margin-left: 40px !important;
+		margin-top: 0px;
+}
+
 	.style-font-text-persona {
 		width: 100%;
 		font-family: 'MuseoSans-300';
@@ -86,5 +95,21 @@ background: grey !important;
 	.style-div {
 padding-bottom: 25px;
 }
+
+                .confirm {
+                    padding-top: 1em;
+                }
+
+                .invalid {
+                    color: red;
+                }
+
+                #fieldlist li input[type="checkbox"] {
+                    margin: 0 5px 0 0;
+                }
+
+                .k-tooltip-validation .k-warning {
+                    display: none;
+                }
 
 }

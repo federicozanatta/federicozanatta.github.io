@@ -8,6 +8,11 @@ function cirugiaController(angular, app) {
     cirugiaCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
 
     function cirugiaCtrl($timeout, $mdSidenav,$state){
+        var user = {
+        circulante : [],
+        instrumentista : []
+       };
+       sessionStorage.setItem('user', JSON.stringify(user));
         var self = this; //jshint ignore:line
         function send(){
             $state.go('cirugia.pre_ingreso',{ user: self.user});

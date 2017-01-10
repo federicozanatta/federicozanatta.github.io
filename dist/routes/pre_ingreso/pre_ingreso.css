@@ -65,6 +65,14 @@
   margin-left: 10px;
   margin-top: 0px; }
 
+.pre_ingreso .style-font-text-red {
+  width: 100%;
+  font-family: 'MuseoSans-300';
+  font-size: 15px;
+  color: red;
+  margin-left: 40px !important;
+  margin-top: 0px; }
+
 .pre_ingreso .style-font-text-persona {
   width: 100%;
   font-family: 'MuseoSans-300';
@@ -75,3 +83,15 @@
 
 .pre_ingreso .style-div {
   padding-bottom: 25px; }
+
+.pre_ingreso .confirm {
+  padding-top: 1em; }
+
+.pre_ingreso .invalid {
+  color: red; }
+
+.pre_ingreso #fieldlist li input[type="checkbox"] {
+  margin: 0 5px 0 0; }
+
+.pre_ingreso .k-tooltip-validation .k-warning {
+  display: none; }

@@ -24,9 +24,10 @@
 	require('./routes/intervencion/intervencion.js')(angular, app);
 	require('./routes/conteo/conteo.js')(angular, app);
 	require('./routes/revision/revision.js')(angular, app);
+	require('./services/users/users.js')(angular, app);
 })();
 
-},{"./routes/cirugia/cirugia.js":2,"./routes/conteo/conteo.js":3,"./routes/intervencion/intervencion.js":4,"./routes/pre_ingreso/pre_ingreso.js":5,"./routes/revision/revision.js":6}],2:[function(require,module,exports){
+},{"./routes/cirugia/cirugia.js":2,"./routes/conteo/conteo.js":3,"./routes/intervencion/intervencion.js":4,"./routes/pre_ingreso/pre_ingreso.js":5,"./routes/revision/revision.js":6,"./services/users/users.js":7}],2:[function(require,module,exports){
 function cirugiaController(angular, app) {
     'use strict';
 
@@ -37,6 +38,11 @@ function cirugiaController(angular, app) {
     cirugiaCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
 
     function cirugiaCtrl($timeout, $mdSidenav,$state){
+        var user = {
+        circulante : [],
+        instrumentista : []
+       };
+       sessionStorage.setItem('user', JSON.stringify(user));
         var self = this; //jshint ignore:line
         function send(){
             $state.go('cirugia.pre_ingreso',{ user: self.user});
@@ -187,15 +193,38 @@ function pre_ingresoController(angular, app) {
 
     app.controller('pre_ingresoCtrl', pre_ingresoCtrl);
 
-    pre_ingresoCtrl.$inject = ['$timeout', '$mdSidenav','$state', '$scope'];
+    pre_ingresoCtrl.$inject = ['$timeout', '$mdSidenav','$state', '$scope','$http', 'userService','$filter', '$parse'];
 
-    function pre_ingresoCtrl($timeout, $mdSidenav, $state, $scope){
-        
+    function pre_ingresoCtrl($timeout, $mdSidenav, $state, $scope, $http, userService, $filter, $parse){
+
 //---------------------------------------------------------------------------
   $scope.itemsCirculante = [];
-  $scope.AddItemCirculante = function(item) {
-    $scope.itemsCirculante.push($scope.we1);
-    $scope.we1 = "";
+  $scope.AddItemCirculante = function() {
+  var dni1 = $scope.we1;
+  if ($scope.we1.length == 0) {
+     console.log($scope.we1.length);
+  } else {
+    userService.getByDni(dni1)
+    .success(function(response) {
+      $scope.user = $filter('filter')(response, {dni: dni1})[0];
+       console.log($scope.user.nombre + " " + $scope.user.apellido);
+        var user2 = JSON.parse(sessionStorage.getItem('user'));
+        user2.circulante.push($scope.user);
+        sessionStorage['user'] = JSON.stringify(user2);
+        console.log($scope.user.dni);
+        if (dni1 == $scope.user.dni) {
+          $scope.itemsCirculante.push($scope.user.nombre + " " + $scope.user.apellido);
+          $scope.we1 = "";
+        } else {    
+        $scope.itemsCirculante.push($scope.we1);
+        $scope.we1 = "";
+  }
+    })
+    .error(function(error) {
+      $scope.itemsCirculante.push($scope.we1);
+        $scope.we1 = "";
+    });
+    }
   };
   $scope.RemoveItemCirculante = function(item) {
     $scope.itemsCirculante.splice($scope.itemsCirculante.indexOf(item), 1);
@@ -203,7 +232,8 @@ function pre_ingresoController(angular, app) {
 
   //---------------------------------------------------------------------------
   $scope.itemsInstrumentista = [];
-  $scope.AddItemInstrumentista = function(item) {
+  $scope.AddItemInstrumentista = function() {
+
     $scope.itemsInstrumentista.push($scope.we2);
     $scope.we2 = "";
   };
@@ -211,13 +241,22 @@ function pre_ingresoController(angular, app) {
     $scope.itemsInstrumentista.splice($scope.itemsInstrumentista.indexOf(item), 1);
   };
 
+  //---------------------------------------------------------------------------
+
+
         //$scope.datess = new Date();
         var date = new Date();
         $scope.datess = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear();
 
         var self = this; //jshint ignore:line
-        function send(){
-            $state.go('cirugia.intervencion',{ user: self.user });
+        function send(a){
+          if (a) {
+            console.log("algo: "+a);
+$state.go('cirugia.intervencion',{ user: self.user });
+          } else {
+        $scope.showMe1 = false; 
+        $scope.showMe1 = !$scope.showMe1;
+          }         
         }
  //       function myFunction() {           
   //      var x = document.getElementById("pre_ingreso.user.circulante").value;
@@ -260,9 +299,37 @@ function revisionController(angular, app) {
 
     app.controller('revisionCtrl', revisionCtrl);
 
-    revisionCtrl.$inject = ['$timeout', '$mdSidenav','$state'];
+    revisionCtrl.$inject = ['$timeout', '$mdSidenav','$state', '$scope'];
 
-    function revisionCtrl($timeout, $mdSidenav,$state){
+    function revisionCtrl($timeout, $mdSidenav, $state, $scope){
+
+//--------------------------------------------------------------
+    $scope.showMe1 = false;
+    $scope.myFunc1 = function() {
+        $scope.showMe1 = !$scope.showMe1;
+    };
+//--------------------------------------------------------------
+    $scope.showMe2 = false;
+    $scope.myFunc2 = function() {
+        $scope.showMe2 = !$scope.showMe2;
+    };
+//--------------------------------------------------------------
+        $scope.showMe3 = false;
+    $scope.myFunc3 = function() {
+        $scope.showMe3 = !$scope.showMe3;
+    };
+//--------------------------------------------------------------
+        $scope.showMe4 = false;
+    $scope.myFunc4 = function() {
+        $scope.showMe4 = !$scope.showMe4;
+    };
+//--------------------------------------------------------------
+        $scope.showMe5 = false;
+    $scope.myFunc5 = function() {
+        $scope.showMe5 = !$scope.showMe5;
+    };
+//--------------------------------------------------------------
+        
         var self = this; //jshint ignore:line
         function send(){
            console.log("Final del informe");
@@ -292,4 +359,17 @@ function revisionController(angular, app) {
     }
 }
 module.exports = revisionController;
+},{}],7:[function(require,module,exports){
+function userService(angular, app) {
+
+	app.service('userService', userService);
+
+	userService.$inject = ['$q', '$http', '$filter'];
+	function userService($q, $http, $filter){
+        this.getByDni = function(dni){
+           return $http.get('./dist/data/user.json');
+        };
+	}
+}
+module.exports = userService;
 },{}]},{},[1]);

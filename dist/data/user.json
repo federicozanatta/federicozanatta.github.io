@@ -1,0 +1,17 @@
+[
+	{
+	"dni":1234567890,
+	"nombre":"Default",
+	"apellido":"Default"
+	},
+	{
+	"dni":33123321,
+	"nombre":"Pablo",
+	"apellido":"Perez"
+	},
+	{
+	"dni":33822163,
+	"nombre":"Federico",
+	"apellido":"Zanatta"
+	}
+]
