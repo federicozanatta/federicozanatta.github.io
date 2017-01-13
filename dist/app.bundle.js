@@ -187,7 +187,7 @@ function intervencionController(angular, app) {
 module.exports = intervencionController;
 },{}],5:[function(require,module,exports){
 function pre_ingresoController(angular, app) {
-    'use strict';
+  'use strict';
 
     'use angular template'; //jshint ignore:line
 
@@ -198,37 +198,44 @@ function pre_ingresoController(angular, app) {
     function pre_ingresoCtrl($timeout, $mdSidenav, $state, $scope, $http, userService, $filter, $parse){
 
 //---------------------------------------------------------------------------
-  $scope.itemsCirculante = [];
-  $scope.AddItemCirculante = function() {
+$scope.itemsCirculante = [];
+$scope.AddItemCirculante = function() {
   var dni1 = $scope.we1;
   if ($scope.we1.length == 0) {
-     console.log($scope.we1.length);
-  } else {
-    userService.getByDni(dni1)
-    .success(function(response) {
-      $scope.user = $filter('filter')(response, {dni: dni1})[0];
-       console.log($scope.user.nombre + " " + $scope.user.apellido);
-        var user2 = JSON.parse(sessionStorage.getItem('user'));
-        user2.circulante.push($scope.user);
-        sessionStorage['user'] = JSON.stringify(user2);
-        console.log($scope.user.dni);
-        if (dni1 == $scope.user.dni) {
-          $scope.itemsCirculante.push($scope.user.nombre + " " + $scope.user.apellido);
-          $scope.we1 = "";
-        } else {    
+   console.log($scope.we1.length);
+ } else {
+  userService.getByDni(dni1)
+  .success(function(response) {
+    var userInfo = $filter('filter')(response, {dni: dni1}, true)[0];
+    $scope.user = userInfo ? userInfo : "";
+    if($scope.user){
+      $scope.dniNotFoundError = "";
+      console.log($scope.user.nombre);
+      var user2 = JSON.parse(sessionStorage.getItem('user'));
+      user2.circulante.push($scope.user);
+      sessionStorage['user'] = JSON.stringify(user2);
+      console.log($scope.user.dni);
+      var dniTest = $scope.user.dni;
+      if (dni1 == dniTest) {
+        $scope.itemsCirculante.push($scope.user.nombre);
+        $scope.we1 = "";
+      } else {    
         $scope.itemsCirculante.push($scope.we1);
         $scope.we1 = "";
-  }
-    })
-    .error(function(error) {
-      $scope.itemsCirculante.push($scope.we1);
-        $scope.we1 = "";
-    });
+      } 
+    }else {
+      $scope.dniNotFoundError = "No se encontro el dni";
     }
-  };
-  $scope.RemoveItemCirculante = function(item) {
-    $scope.itemsCirculante.splice($scope.itemsCirculante.indexOf(item), 1);
-  };
+    console.log($scope.dniNotFoundError);
+  })
+  .error(function(e) {
+    console.log("test de error");
+  });
+}
+};
+$scope.RemoveItemCirculante = function(item) {
+  $scope.itemsCirculante.splice($scope.itemsCirculante.indexOf(item), 1);
+};
 
   //---------------------------------------------------------------------------
   $scope.itemsInstrumentista = [];
@@ -242,20 +249,53 @@ function pre_ingresoController(angular, app) {
   };
 
   //---------------------------------------------------------------------------
-
-
+  $scope.AddPaciente = function() {
+     var pDNI = $scope.pacienteDNI;
+  if ($scope.pacienteDNI.length == 0) {
+   console.log($scope.pacienteDNI.length);
+ } else {
+  userService.getByDni(pDNI)
+  .success(function(response) {
+    var userInfo = $filter('filter')(response, {dni: pDNI}, true)[0];
+    $scope.user = userInfo ? userInfo : "";
+    if($scope.user){
+      $scope.dniNotFoundError = "";
+      console.log($scope.user.nombre);
+      var dniTest = $scope.user.dni;
+      if (pDNI == dniTest) {
+        $scope.pacienteNombre = $scope.user.nombre;
+        $scope.pacienteEdad = $scope.user.edad;
+        $scope.pacienteDomicilio = $scope.user.domicilio;
+        $scope.pacienteDiagnostico = $scope.user.diagnostico;
+        $scope.pacienteHC = $scope.user.historia;
+        $scope.pacienteFI = $scope.user.fechaIngreso;
+        $scope.pacienteOS = $scope.user.obraSocial;
+      } else {    
+        console.log("no funco");
+      } 
+    }else {
+      $scope.dniNotFoundError = "No se encontro el dni";
+    }
+    console.log($scope.dniNotFoundError);
+  })
+  .error(function(e) {
+    console.log("test de error");
+  });
+}
+  };
+ //---------------------------------------------------------------------------
         //$scope.datess = new Date();
         var date = new Date();
-        $scope.datess = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear();
+        $scope.datess = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear();
 
         var self = this; //jshint ignore:line
         function send(a){
           if (a) {
             console.log("algo: "+a);
-$state.go('cirugia.intervencion',{ user: self.user });
+            $state.go('cirugia.intervencion',{ user: self.user });
           } else {
-        $scope.showMe1 = false; 
-        $scope.showMe1 = !$scope.showMe1;
+            $scope.showMe1 = false; 
+            $scope.showMe1 = !$scope.showMe1;
           }         
         }
  //       function myFunction() {           
@@ -263,29 +303,29 @@ $state.go('cirugia.intervencion',{ user: self.user });
   //      document.getElementById("demo").innerHTML = x;
   //      }
 
-        function volverCirugia(){
-            $state.go('cirugia',{ user: self.user });
-        }
-        function buildToggler(componentId) {
-            $mdSidenav(componentId).toggle();
-        }
-        function toggleLeft(){ 
-            buildToggler('left'); 
-        }
-        function toggleRight() { 
-            buildToggler('right');
-        }
-        function init(){
-            self.user = {};
-            self.toggleLeft = toggleLeft;
-            self.toggleRight = toggleRight;
-            self.send = send;
-            self.volverCirugia = volverCirugia;
+  function volverCirugia(){
+    $state.go('cirugia',{ user: self.user });
+  }
+  function buildToggler(componentId) {
+    $mdSidenav(componentId).toggle();
+  }
+  function toggleLeft(){ 
+    buildToggler('left'); 
+  }
+  function toggleRight() { 
+    buildToggler('right');
+  }
+  function init(){
+    self.user = {};
+    self.toggleLeft = toggleLeft;
+    self.toggleRight = toggleRight;
+    self.send = send;
+    self.volverCirugia = volverCirugia;
      //       self.myFunction = myFunction;
-        }
+   }
 
-        init();
-    }
+   init();
+ }
 }
 
 module.exports = pre_ingresoController
@@ -302,7 +342,7 @@ function revisionController(angular, app) {
     revisionCtrl.$inject = ['$timeout', '$mdSidenav','$state', '$scope'];
 
     function revisionCtrl($timeout, $mdSidenav, $state, $scope){
-
+var self = this; //jshint ignore:line
 //--------------------------------------------------------------
     $scope.showMe1 = false;
     $scope.myFunc1 = function() {
@@ -330,7 +370,6 @@ function revisionController(angular, app) {
     };
 //--------------------------------------------------------------
         
-        var self = this; //jshint ignore:line
         function send(){
            console.log("Final del informe");
         }
@@ -354,6 +393,8 @@ function revisionController(angular, app) {
             self.toggleRight = toggleRight;
             self.send = send;
             self.volverConteo = volverConteo;
+            self.users = JSON.parse(sessionStorage.getItem('user'));
+            console.log(self.users);
         }
         init();
     }

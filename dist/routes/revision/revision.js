@@ -8,7 +8,7 @@ function revisionController(angular, app) {
     revisionCtrl.$inject = ['$timeout', '$mdSidenav','$state', '$scope'];
 
     function revisionCtrl($timeout, $mdSidenav, $state, $scope){
-
+var self = this; //jshint ignore:line
 //--------------------------------------------------------------
     $scope.showMe1 = false;
     $scope.myFunc1 = function() {
@@ -36,7 +36,6 @@ function revisionController(angular, app) {
     };
 //--------------------------------------------------------------
         
-        var self = this; //jshint ignore:line
         function send(){
            console.log("Final del informe");
         }
@@ -60,6 +59,8 @@ function revisionController(angular, app) {
             self.toggleRight = toggleRight;
             self.send = send;
             self.volverConteo = volverConteo;
+            self.users = JSON.parse(sessionStorage.getItem('user'));
+            console.log(self.users);
         }
         init();
     }
