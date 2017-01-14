@@ -9,6 +9,8 @@ function revisionController(angular, app) {
 
     function revisionCtrl($timeout, $mdSidenav, $state, $scope){
 var self = this; //jshint ignore:line
+
+    $scope.password = [];
 //--------------------------------------------------------------
     $scope.showMe1 = false;
     $scope.myFunc1 = function() {

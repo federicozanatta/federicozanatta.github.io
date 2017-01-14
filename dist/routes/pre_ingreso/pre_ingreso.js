@@ -96,6 +96,21 @@ $scope.RemoveItemCirculante = function(item) {
 }
   };
  //---------------------------------------------------------------------------
+$scope.AddDiagnostico = function(){
+var recognizer = new webkitSpeechRecognition();
+recognizer.lang = "es";
+recognizer.onresult = function(event) {
+    if (event.results.length > 0) {
+        var result = event.results[event.results.length-1];
+        if(result.isFinal) {
+            console.log(result[0].transcript);
+            $scope.pacienteDiagnostico = (result[0].transcript);
+        }
+    }  
+};
+recognizer.start();
+}
+ //---------------------------------------------------------------------------
         //$scope.datess = new Date();
         var date = new Date();
         $scope.datess = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear();
@@ -133,7 +148,6 @@ $scope.RemoveItemCirculante = function(item) {
     self.toggleRight = toggleRight;
     self.send = send;
     self.volverCirugia = volverCirugia;
-     //       self.myFunction = myFunction;
    }
 
    init();

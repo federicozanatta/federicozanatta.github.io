@@ -21,5 +21,15 @@
 	"historia": "9153831",
 	"fechaIngreso": "12/03/2003",
 	"obraSocial": "Ospe"
+	},
+		{
+	"dni": 33888999,
+	"nombre": "Fabricio Gomez",
+	"edad": "24",
+	"domicilio": "Chile 82",
+	"diagnostico": "El paciente presenta apendicitis",
+	"historia": "4453730",
+	"fechaIngreso": "22/07/2006",
+	"obraSocial": "Swiss Medical"
 	}
 ]

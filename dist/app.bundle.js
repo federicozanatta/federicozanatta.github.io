@@ -9,6 +9,7 @@
 		//.state('home', { url: "/", templateUrl: "./dist/routes/home/home.template.html", controller:"homeCtrl", controllerAs:"home" })
 		//.state('home.result', { url: "result", templateUrl: "./dist/routes/result/result.template.html",params: { user: null}, controller:"resultCtrl", controllerAs:"result" })
 		.state('cirugia', { url: "/", templateUrl: "./dist/routes/cirugia/cirugia.template.html", controller:"cirugiaCtrl", controllerAs:"cirugia" })
+		//.state('cirugia.api', { url: "api", templateUrl: "./dist/routes/pre_ingreso/api.html",params: { user: null}, controller:"api", controllerAs:"pre_ingreso" })
 		.state('cirugia.pre_ingreso', { url: "pre_ingreso", templateUrl: "./dist/routes/pre_ingreso/pre_ingreso.template.html",params: { user: null}, controller:"pre_ingresoCtrl", controllerAs:"pre_ingreso" })
 		.state('cirugia.intervencion', { url: "intervencion", templateUrl: "./dist/routes/intervencion/intervencion.template.html",params: { user: null}, controller:"intervencionCtrl", controllerAs:"intervencion" })
 		.state('cirugia.conteo', { url: "conteo", templateUrl: "./dist/routes/conteo/conteo.template.html",params: { user: null}, controller:"conteoCtrl", controllerAs:"conteo" })
@@ -284,6 +285,21 @@ $scope.RemoveItemCirculante = function(item) {
 }
   };
  //---------------------------------------------------------------------------
+$scope.AddDiagnostico = function(){
+var recognizer = new webkitSpeechRecognition();
+recognizer.lang = "es";
+recognizer.onresult = function(event) {
+    if (event.results.length > 0) {
+        var result = event.results[event.results.length-1];
+        if(result.isFinal) {
+            console.log(result[0].transcript);
+            $scope.pacienteDiagnostico = (result[0].transcript);
+        }
+    }  
+};
+recognizer.start();
+}
+ //---------------------------------------------------------------------------
         //$scope.datess = new Date();
         var date = new Date();
         $scope.datess = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear();
@@ -321,7 +337,6 @@ $scope.RemoveItemCirculante = function(item) {
     self.toggleRight = toggleRight;
     self.send = send;
     self.volverCirugia = volverCirugia;
-     //       self.myFunction = myFunction;
    }
 
    init();
@@ -343,6 +358,8 @@ function revisionController(angular, app) {
 
     function revisionCtrl($timeout, $mdSidenav, $state, $scope){
 var self = this; //jshint ignore:line
+
+    $scope.password = [];
 //--------------------------------------------------------------
     $scope.showMe1 = false;
     $scope.myFunc1 = function() {
