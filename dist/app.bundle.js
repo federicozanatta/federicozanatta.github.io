@@ -285,20 +285,33 @@ $scope.RemoveItemCirculante = function(item) {
 }
   };
  //---------------------------------------------------------------------------
-$scope.AddDiagnostico = function(){
-var recognizer = new webkitSpeechRecognition();
-recognizer.lang = "es";
-recognizer.onresult = function(event) {
+    $scope.AddDiagnostico = function() {
+      document.getElementById("test").blur();
+      var textoFinal = [];
+  var recognizer = new webkitSpeechRecognition();
+  recognizer.continuous = true;
+  recognizer.lang = "es";
+  recognizer.onresult = function(event) {
     if (event.results.length > 0) {
-        var result = event.results[event.results.length-1];
+      document.getElementById("test").focus();
+         var result = event.results[event.results.length-1];
         if(result.isFinal) {
-            console.log(result[0].transcript);
-            $scope.pacienteDiagnostico = (result[0].transcript);
-        }
-    }  
-};
-recognizer.start();
+              $scope.textoFinal += (result[0].transcript);
+              $scope.pacienteDiagnostico = $scope.textoFinal;
+          } else {
+   
+              $scope.pacienteDiagnostico = (result[0].transcript);
+          }
+          document.getElementById("test").blur();
+
+      }  else {
+  document.getElementById("test").focus();
+  }
+  } ;
+  recognizer.start();
+  document.getElementById("test").focus();
 }
+
  //---------------------------------------------------------------------------
         //$scope.datess = new Date();
         var date = new Date();
