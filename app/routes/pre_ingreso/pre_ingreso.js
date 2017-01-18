@@ -44,6 +44,7 @@ $scope.AddItemCirculante = function() {
     console.log("test de error");
   });
 }
+document.getElementById("circulante").blur();
 };
 $scope.RemoveItemCirculante = function(item) {
   $scope.itemsCirculante.splice($scope.itemsCirculante.indexOf(item), 1);
@@ -94,6 +95,7 @@ $scope.RemoveItemCirculante = function(item) {
     console.log("test de error");
   });
 }
+document.getElementById("paciente").blur();
   };
  //---------------------------------------------------------------------------
     $scope.AddDiagnostico = function(valor) {
