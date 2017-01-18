@@ -37,6 +37,11 @@ var self = this; //jshint ignore:line
         $scope.showMe5 = !$scope.showMe5;
     };
 //--------------------------------------------------------------
+        $scope.showMe6 = false;
+    $scope.myFunc6 = function() {
+        $scope.showMe6 = !$scope.showMe6;
+    };
+//--------------------------------------------------------------
         
         function send(){
            console.log("Final del informe");

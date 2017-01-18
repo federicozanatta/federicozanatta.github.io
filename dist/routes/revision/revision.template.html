@@ -1,15 +1,14 @@
-<div class="revision">
+<div class="revision" layout-padding>
 	<link rel="stylesheet" type="text/css" href="./dist/routes/revision/revision.css" >
 	<div>
 		<section layout="column">
-			<md-content flex="1">
+		
 			<div class="style-font">
 				<span>Confirmación</span>
 			</div>
-			</md-content>
-			<md-content flex="2">		
+			
 			<form name="userForm">
-				<div class="style-input-div"  layout-padding>
+				<div class="style-input-div"  >
 				<div ng-repeat="circulante in revision.users.circulante">
 					<div class="style-input-left">				
 						<md-input-container>
@@ -18,13 +17,15 @@
 						</md-input-container>	
 					</div>		
 					<div class="style-input-right" ng-controller="revisionCtrl">
-						<md-input-container >
+						<md-input-container>
 						<md-icon ><i class="style-input material-icons">fingerprint</i></md-icon>
 						<input ng-model="password" type="password" placeholder="Contraseña" autocomplete="off">
-						<md-button class="button-form" ng-click="myFunc2()"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						<md-button class="button-form" ng-click="myFunc1()"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>		
+						<i class="style-check material-icons" ng-show="showMe1">check_circle</i>
 						</md-input-container>
-						<i class="style-check material-icons" ng-show="showMe2">check_circle</i>
+						
 					</div>
+
 				</div>
 				<div>
 					<div class="style-input-left">	
@@ -58,42 +59,46 @@
 						<md-icon ><i class="style-input material-icons">fingerprint</i></md-icon>
 						<input ng-model="password" type="password" placeholder="Contraseña" autocomplete="off">
 						<md-button class="button-form" ng-click="myFunc2()"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						<i class="style-check material-icons" ng-show="showMe2">check_circle</i>
 						</md-input-container>
-						<i class="style-check material-icons" ng-show="showMe2">check_circle</i>	
 						<br>	
 						<md-input-container>
 						<md-icon ><i class="style-input material-icons">fingerprint</i></md-icon>
 						<input ng-model="pre_ingreso.user.cotra1" type="password" placeholder="Contraseña" autocomplete="off">
-						<md-button class="button-form" ng-click="myFunc1()"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon>
-						</md-button>									
+						<md-button class="button-form" ng-click="myFunc3()"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon>
+						</md-button>		
+						<i class="style-check material-icons" ng-show="showMe3">check_circle</i>							
 						</md-input-container>	
-						<i class="style-check material-icons" ng-show="showMe1">check_circle</i>
+						
 						<br>			
 						<md-input-container>
 						<md-icon ><i class="style-input material-icons">fingerprint</i></md-icon>
 						<input ng-model="pre_ingreso.user.cotra12" type="password" placeholder="Contraseña" autocomplete="off">
-						<md-button class="button-form" ng-click="myFunc2()"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						<md-button class="button-form" ng-click="myFunc4()"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						<i class="style-check material-icons" ng-show="showMe4">check_circle</i>
 						</md-input-container>
-						<i class="style-check material-icons" ng-show="showMe2">check_circle</i>
+						
 						<br>			
 						<md-input-container>
 						<md-icon ><i class="style-input material-icons">fingerprint</i></md-icon>
 						<input ng-model="pre_ingreso.user.cotra13" type="password" placeholder="Contraseña" autocomplete="off">
-						<md-button class="button-form" ng-click="myFunc3()"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						<md-button class="button-form" ng-click="myFunc5()"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						<i class="style-check material-icons" ng-show="showMe5">check_circle</i>
 						</md-input-container>
-						<i class="style-check material-icons" ng-show="showMe3">check_circle</i>
+						
 						<br>			
 						<md-input-container>
 						<md-icon ><i class="style-input material-icons">fingerprint</i></md-icon>
 						<input ng-model="pre_ingreso.user.cotra14" type="password" placeholder="Contraseña" autocomplete="off">
-						<md-button class="button-form" ng-click="myFunc4()"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						<md-button class="button-form"><md-icon><i class="style-input material-icons">chevron_right</i></md-icon></md-button>
+						<i class="style-check material-icons" ng-show="showMe8">check_circle</i>
 						</md-input-container>	
-						<i class="style-check material-icons" ng-show="showMe4">check_circle</i>					
+											
 					</div>
 				</div>
 				</div>
 			</form>
-			</md-content>
+			
 			<div class="style-div">
 				<sm-input-container class="md-block" flex-md>
 				<br>

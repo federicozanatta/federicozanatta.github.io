@@ -12,15 +12,25 @@
 		margin-left: 12%;
 	}
 	.style-input-left{
-		width: 40%;
-		margin-left: 5%;
+		width: 37%;
+		margin-left: 25px;
 		float: left;
 	}
+
 	.style-input-right{
-		width: 40%;
-		margin-left: 5%;
+		width: 30%;
+		margin-right: 70px;
 		float: right;
 	}
+
+	.style-input-right-hour{
+		width: 80%;
+	}
+
+	.style-input-right-diag{
+		width: 100%;
+	}
+
 	.style-input-div{
 		width: 95%;
 	}
@@ -30,13 +40,19 @@
 		font-family: 'MuseoSans-300';
 		font-size: 35px;
 		color: grey;
-		margin-left: 35.5%;
-		margin-top: 30px;
+		margin-left: 30%;
+		margin-top: 6px;
+		margin-bottom: 20px;
 	}
 
-	.style-check{
-		padding-left: 50px;
-	}
+	.style-check {
+  position: absolute !important;
+  min-height: 30px !important;
+  min-width: 32px !important;
+  line-height: 31px !important;
+  padding: 0px 6px !important;
+  margin: 3px 45px !important;
+}
 
 	.button-form {
   position: absolute !important;

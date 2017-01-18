@@ -10,25 +10,32 @@
   margin-left: 12%; }
 
 .conteo .style-input-left {
-  width: 40%;
-  margin-left: 5%;
+  width: 37%;
+  margin-left: 20px;
   float: left; }
 
 .conteo .style-input-right {
-  width: 40%;
-  margin-left: 5%;
+  width: 37%;
+  margin-right: 20px;
   float: right; }
+
+.conteo .style-input-right-hour {
+  width: 80%; }
+
+.conteo .style-input-right-diag {
+  width: 100%; }
 
 .conteo .style-input-div {
   width: 95%; }
 
 .conteo .style-font {
-  width: 55%;
+  width: 85%;
   font-family: 'MuseoSans-300';
   font-size: 35px;
   color: grey;
-  margin-left: 24.5%;
-  margin-top: 30px; }
+  margin-left: 15.5%;
+  margin-top: 6px;
+  margin-bottom: 20px; }
 
 .conteo .button-form {
   position: absolute !important;
@@ -40,21 +47,21 @@
 
 .conteo .button-form-diagnostico {
   position: absolute !important;
-  min-height: 30px !important;
-  min-width: 32px !important;
-  line-height: 31px !important;
+  min-height: 32px !important;
+  min-width: 30px !important;
+  line-height: 30px !important;
   padding: 0px 6px !important;
-  margin: 20px 5px !important; }
+  margin: -30px 168px !important; }
 
 .conteo .style-button-volver {
   background: grey !important; }
 
 .conteo .style-font-check {
-  width: 80%;
+  width: 90%;
   font-family: 'MuseoSans-300';
   font-size: 20px;
   color: grey;
-  margin-left: 57px;
+  margin-left: 25px;
   margin-top: 0px; }
 
 .conteo .style-font-text {

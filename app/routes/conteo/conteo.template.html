@@ -1,16 +1,12 @@
-<div class="conteo">
+<div class="conteo" layout-padding>
 	<link rel="stylesheet" type="text/css" href="./dist/routes/conteo/conteo.css" >
 	<div>
 		<section layout="column">
-			<md-content flex="1">
 			<div class="style-font">
 				<span>Verificación del Material</span>
 			</div>
-			</md-content>
-			<md-content flex="2">
-			
 			<form name="userForm">
-				<div class="style-input-div" layout-padding>
+				<div class="style-input-div">
 					<div class="style-input-left">
 						<md-input-container>
 						<md-icon ><i class="material-icons">unarchive</i></md-icon>
@@ -30,9 +26,10 @@
 						<md-input-container>
 						<md-icon><i class="material-icons">assignment</i></md-icon>
 						<textarea cols="22" ng-model="pre_ingreso.user.observaciones" type="text" placeholder="Observaciones">						
-						</textarea> 					
+						</textarea> 				
+						<md-button class="button-form-diagnostico"><md-icon><i class="material-icons">keyboard_voice</i></md-icon></md-button>	
 						</md-input-container>
-						<md-button class="button-form-diagnostico"><md-icon><i class="material-icons">keyboard_voice</i></md-icon></md-button>
+						
 					</div>
 					<div class="style-input-right">
 						<md-input-container>
@@ -53,14 +50,14 @@
 						<md-button class="button-form"><md-icon><i class="material-icons">chevron_right</i></md-icon></md-button>
 						</md-input-container>
 						<br>
-						<md-input-container>
+						<md-input-container class="style-input-right-hour">
 						<md-icon ><i class="material-icons">watch</i></md-icon>
 						<input ng-model="pre_ingreso.user.date.hora" ng-format="hh:mm" type="time" step="1" placeholder="Hora de Egreso">
 						</md-input-container>
 					</div>
 				</div>
 			</form>
-			</md-content>
+		
 			<div class="style-div">
 				<sm-input-container class="md-block" flex-md>
 				<div class="style-font-check">

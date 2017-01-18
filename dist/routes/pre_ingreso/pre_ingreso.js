@@ -98,18 +98,20 @@ $scope.RemoveItemCirculante = function(item) {
  //---------------------------------------------------------------------------
     $scope.AddDiagnostico = function(valor) {
       $scope.textoFinal = [];
-      $scope.textoFinal.push(valor);
-      $scope.textoFinal.push(" ");
+      if (valor) {
+        $scope.textoFinal.push(valor + " ");
+      } else {
+        console.log("valor vacio");
+      }
       document.getElementById("test").blur();
   var recognizer = new webkitSpeechRecognition();
- // recognizer.continuous = true;
+  recognizer.continuous = true;
   recognizer.lang = "es";
   recognizer.onresult = function(event) {
     if (event.results.length > 0) {
       document.getElementById("test").focus();
          var result = event.results[event.results.length-1];
         if(result.isFinal) {
-              $scope.variablePrueba = (result[0].transcript);
               $scope.textoFinal += (result[0].transcript);
               $scope.pacienteDiagnostico = $scope.textoFinal;
           } else {
