@@ -292,25 +292,24 @@ $scope.RemoveItemCirculante = function(item) {
       } else {
         console.log("valor vacio");
       }
-      document.getElementById("test").blur();
+      //document.getElementById("test").blur();
   var recognizer = new webkitSpeechRecognition();
-  recognizer.continuous = true;
+  //recognizer.continuous = true;
   recognizer.lang = "es";
   recognizer.onresult = function(event) {
     if (event.results.length > 0) {
       document.getElementById("test").focus();
          var result = event.results[event.results.length-1];
         if(result.isFinal) {
+              document.getElementById("test").focus();
               $scope.textoFinal += (result[0].transcript);
               $scope.pacienteDiagnostico = $scope.textoFinal;
-          } 
-          document.getElementById("test").blur();
-      }  else {
-  document.getElementById("test").focus();
-  }
+              document.getElementById("test").blur();
+          }  
+          document.getElementById("test").blur();  
+      }
   } ;
   recognizer.start();
-  document.getElementById("test").focus();
 }
 
  //---------------------------------------------------------------------------
