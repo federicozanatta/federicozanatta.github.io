@@ -303,9 +303,7 @@ $scope.RemoveItemCirculante = function(item) {
         if(result.isFinal) {
               $scope.textoFinal += (result[0].transcript);
               $scope.pacienteDiagnostico = $scope.textoFinal;
-          } else {
-              $scope.pacienteDiagnostico = (result[0].transcript);
-          }
+          } 
           document.getElementById("test").blur();
       }  else {
   document.getElementById("test").focus();
