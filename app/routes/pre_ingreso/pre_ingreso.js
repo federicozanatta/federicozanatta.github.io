@@ -53,10 +53,35 @@ $scope.RemoveItemCirculante = function(item) {
   //---------------------------------------------------------------------------
   $scope.itemsInstrumentista = [];
   $scope.AddItemInstrumentista = function() {
-
-    $scope.itemsInstrumentista.push($scope.we2);
-    $scope.we2 = "";
-  };
+  var dni2 = $scope.we2;
+  if ($scope.we2.length == 0) {
+   console.log($scope.we2.length);
+ } else {
+  userService.getByDni(dni2)
+  .success(function(response) {
+    var userInfo = $filter('filter')(response, {dni: dni2}, true)[0];
+    $scope.user = userInfo ? userInfo : "";
+    if($scope.user){
+      $scope.dniNotFoundError = "";
+      console.log($scope.user.dni);
+      var dniTest = $scope.user.dni;
+      if (dni2 == dniTest) {
+        $scope.itemsInstrumentista.push($scope.user.nombre);
+        $scope.we2 = "";
+      } else {    
+        $scope.itemsInstrumentista.push($scope.we2);
+        $scope.we2 = "";
+      } 
+    }else {
+      $scope.dniNotFoundError = "No se encontro el dni";
+    }
+    console.log($scope.dniNotFoundError);
+  })
+  .error(function(e) {
+    console.log("test de error");
+  });
+}
+};
   $scope.RemoveItemInstrumentista = function(item) {
     $scope.itemsInstrumentista.splice($scope.itemsInstrumentista.indexOf(item), 1);
   };
