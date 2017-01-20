@@ -158,7 +158,6 @@ document.getElementById("paciente").blur();
         var self = this; //jshint ignore:line
         function send(a){
           if (a) {
-            console.log("algo: "+a);
             $state.go('cirugia.intervencion',{ user: self.user });
           } else {
             $scope.showMe1 = false; 

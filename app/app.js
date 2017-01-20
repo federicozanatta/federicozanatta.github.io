@@ -13,7 +13,7 @@
 		.state('cirugia.intervencion', { url: "intervencion", templateUrl: "./dist/routes/intervencion/intervencion.template.html",params: { user: null}, controller:"intervencionCtrl", controllerAs:"intervencion" })
 		.state('cirugia.conteo', { url: "conteo", templateUrl: "./dist/routes/conteo/conteo.template.html",params: { user: null}, controller:"conteoCtrl", controllerAs:"conteo" })
 		.state('cirugia.revision', { url: "revision", templateUrl: "./dist/routes/revision/revision.template.html",params: { user: null}, controller:"revisionCtrl", controllerAs:"revision" })
-	
+		
 
 	});
 	app.run(function (){});	

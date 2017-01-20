@@ -45,6 +45,7 @@ var self = this; //jshint ignore:line
         
         function send(){
            console.log("Final del informe");
+           $state.go('cirugia',{ user: self.user });
         }
      function volverConteo(){
             $state.go('cirugia.conteo',{ user: self.user });

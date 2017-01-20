@@ -14,7 +14,7 @@
 		.state('cirugia.intervencion', { url: "intervencion", templateUrl: "./dist/routes/intervencion/intervencion.template.html",params: { user: null}, controller:"intervencionCtrl", controllerAs:"intervencion" })
 		.state('cirugia.conteo', { url: "conteo", templateUrl: "./dist/routes/conteo/conteo.template.html",params: { user: null}, controller:"conteoCtrl", controllerAs:"conteo" })
 		.state('cirugia.revision', { url: "revision", templateUrl: "./dist/routes/revision/revision.template.html",params: { user: null}, controller:"revisionCtrl", controllerAs:"revision" })
-	
+		
 
 	});
 	app.run(function (){});	
@@ -347,7 +347,6 @@ document.getElementById("paciente").blur();
         var self = this; //jshint ignore:line
         function send(a){
           if (a) {
-            console.log("algo: "+a);
             $state.go('cirugia.intervencion',{ user: self.user });
           } else {
             $scope.showMe1 = false; 
@@ -434,6 +433,7 @@ var self = this; //jshint ignore:line
         
         function send(){
            console.log("Final del informe");
+           $state.go('cirugia',{ user: self.user });
         }
      function volverConteo(){
             $state.go('cirugia.conteo',{ user: self.user });
