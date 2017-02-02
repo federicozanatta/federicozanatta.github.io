@@ -46,13 +46,14 @@
 						<input ng-model="pacienteDomicilio" type="text" readonly placeholder="Domicilio" autocomplete="off"/>
 						</md-input-container>
 						<br>
-						<md-input-container>
+						<md-input-container class="style-input-diag-test">
 						<md-icon><i class="material-icons">assignment</i></md-icon>
 						<textarea id="test" name="test" cols="22" ng-model="pacienteDiagnostico" type="text" placeholder="Diagnóstico"/>					
 						</textarea> 		
 						<md-button class="button-form-diagnostico" ng-click="AddDiagnostico(pacienteDiagnostico)"><md-icon><i class="material-icons">keyboard_voice</i></md-icon></md-button>			
-						</md-input-container>					
+						</md-input-container>
 					</div>
+
 					<div class="style-input-right">
 						<md-input-container>
 						<md-icon ><i class="material-icons">date_range</i></md-icon>
@@ -84,7 +85,11 @@
 						<input ng-model="pacienteOS" type="text" readonly placeholder="Obra Social"/>
 						</md-input-container>				
 					</div>
+											
+
+				
 				</div>
+
 			</form>
 		
 			<div class="style-div" id="fieldlist">
